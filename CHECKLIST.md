@@ -18,9 +18,9 @@
 
 ## Features
 
-[ ] EMA
-[ ] RSI
-[ ] ATR
+[x] EMA
+[x] RSI
+[x] ATR
 [ ] VWAP
 
 ## Models
