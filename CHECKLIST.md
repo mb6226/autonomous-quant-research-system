@@ -1,8 +1,7 @@
 # AQRS Execution Checklist
 
 ## Core
-
-[ ] Experiment
+[x] Experiment
 [ ] ExperimentResult
 
 ## Registries
