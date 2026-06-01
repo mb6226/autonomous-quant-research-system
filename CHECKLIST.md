@@ -14,7 +14,7 @@
 
 ## Data
 
-[ ] Binance Provider
+[x] Binance Provider
 [ ] MT5 Provider
 [ ] Dataset Factory
 
@@ -44,4 +44,3 @@
 
 [ ] Feature Selection
 [ ] Hyperparameter Search
-
