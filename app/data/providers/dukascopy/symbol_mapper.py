@@ -1,0 +1,6 @@
+DUKASCOPY_SYMBOLS = {
+    "EURUSD": "EUR/USD",
+    "XAUUSD": "XAU/USD",
+    "USOIL": "USO.US/USD",
+    "US30": "USA30.IDX/USD",
+}
