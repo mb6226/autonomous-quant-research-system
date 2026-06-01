@@ -32,7 +32,7 @@
 [x] Forward Return 10
 [x] Forward Return 20
 
-[ ] Classification Up Down
+[x] Classification Up Down
 
 [ ] Volatility 5
 [ ] Volatility 10
