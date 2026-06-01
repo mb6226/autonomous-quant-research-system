@@ -28,7 +28,7 @@
 [x] Target Factory
 
 [x] Forward Return 1
-[ ] Forward Return 5
+[x] Forward Return 5
 [ ] Forward Return 10
 [ ] Forward Return 20
 
