@@ -1,15 +1,16 @@
-from app.data.providers.base_provider import (
-    BaseDataProvider,
+from app.data.jobs.download_job import (
+    DownloadJob,
 )
 
-class BinanceProvider(
-    BaseDataProvider
-):
+class BinanceProvider:
 
-    def load_candles(
+    def download(
         self,
-        symbol: str,
-        timeframe: str,
-        limit: int,
+        job: DownloadJob,
     ):
-        raise NotImplementedError
+
+        print(
+            "DOWNLOADING",
+            job.symbol,
+            job.timeframe,
+        )
