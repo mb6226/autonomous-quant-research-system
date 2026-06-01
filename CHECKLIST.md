@@ -34,9 +34,9 @@
 
 [x] Classification Up Down
 
-[ ] Volatility 5
-[ ] Volatility 10
-[ ] Volatility 20
+[x] Volatility 5
+[x] Volatility 10
+[x] Volatility 20
 
 ## Models
 
