@@ -30,7 +30,7 @@
 [x] Forward Return 1
 [x] Forward Return 5
 [x] Forward Return 10
-[ ] Forward Return 20
+[x] Forward Return 20
 
 [ ] Classification Up Down
 
