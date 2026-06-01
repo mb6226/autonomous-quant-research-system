@@ -7,7 +7,7 @@
 ## Registries
 
 [x] Market Registry
-[ ] Feature Registry
+[x] Feature Registry
 [ ] Model Registry
 [ ] Target Registry
 
