@@ -30,18 +30,30 @@ class YahooProvider:
                 for col in df.columns
             ]
 
-        df = (
-            df.reset_index()
-            .rename(
+        df = df.reset_index()
+
+        if "Date" in df.columns:
+            df = df.rename(
                 columns={
                     "Date": "timestamp",
-                    "Open": "open",
-                    "High": "high",
-                    "Low": "low",
-                    "Close": "close",
-                    "Volume": "volume",
                 }
             )
+
+        if "Datetime" in df.columns:
+            df = df.rename(
+                columns={
+                    "Datetime": "timestamp",
+                }
+            )
+
+        df = df.rename(
+            columns={
+                "Open": "open",
+                "High": "high",
+                "Low": "low",
+                "Close": "close",
+                "Volume": "volume",
+            }
         )
 
         return df[

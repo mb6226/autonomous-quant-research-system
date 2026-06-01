@@ -111,4 +111,26 @@ class BinanceProvider:
             utc=True,
         )
 
+        numeric_columns = [
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+            "quote_volume",
+            "tb_base",
+            "tb_quote",
+        ]
+
+        for col in numeric_columns:
+            df[col] = pd.to_numeric(
+                df[col],
+                errors="coerce",
+            )
+
+        df["trades"] = pd.to_numeric(
+            df["trades"],
+            errors="coerce",
+        ).astype("int64")
+
         return df
