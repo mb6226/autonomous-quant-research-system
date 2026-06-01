@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+
+# Environment Variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Research Outputs
+results/
+
+# Temporary Files
+*.tmp
+*.log
+
+# Model Artifacts
+models/
+*.pkl
+
+# Data
+data/raw/
+data/cache/
+
