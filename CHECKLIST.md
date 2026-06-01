@@ -2,7 +2,7 @@
 
 ## Core
 [x] Experiment
-[ ] ExperimentResult
+[x] ExperimentResult
 
 ## Registries
 
