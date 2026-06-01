@@ -8,7 +8,7 @@
 
 [x] Market Registry
 [x] Feature Registry
-[ ] Model Registry
+[x] Model Registry
 [ ] Target Registry
 
 ## Data
