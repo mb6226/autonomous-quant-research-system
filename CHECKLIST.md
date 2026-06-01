@@ -47,7 +47,7 @@
 
 [x] Research Dataset Builder
 [x] Experiment Runner
-[ ] Research Database
+[x] Research Database
 
 ## Validation
 
