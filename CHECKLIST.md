@@ -25,7 +25,7 @@
 
 ## Targets
 
-[ ] Target Factory
+[x] Target Factory
 
 [ ] Forward Return 1
 [ ] Forward Return 5
