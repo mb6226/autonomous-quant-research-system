@@ -21,7 +21,7 @@
 [x] EMA
 [x] RSI
 [x] ATR
-[ ] VWAP
+[x] VWAP
 
 ## Models
 
