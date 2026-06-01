@@ -23,6 +23,21 @@
 [x] ATR
 [x] VWAP
 
+## Targets
+
+[ ] Target Factory
+
+[ ] Forward Return 1
+[ ] Forward Return 5
+[ ] Forward Return 10
+[ ] Forward Return 20
+
+[ ] Classification Up Down
+
+[ ] Volatility 5
+[ ] Volatility 10
+[ ] Volatility 20
+
 ## Models
 
 [ ] Random Forest
