@@ -38,10 +38,38 @@
 [x] Volatility 10
 [x] Volatility 20
 
-## Models
+## Model System
+
+### Linear Models
+
+[ ] Linear Regression
+[ ] Ridge
+[ ] Lasso
+[ ] Elastic Net
+
+### Tree Models
 
 [ ] Random Forest
+[ ] Extra Trees
+
+### Boosting Models
+
 [ ] Gradient Boosting
+[ ] XGBoost
+[ ] LightGBM
+[ ] CatBoost
+
+### SVM Models
+
+[ ] SVR
+[ ] SVC
+
+### Neural Networks
+
+[ ] MLP
+[ ] LSTM
+[ ] GRU
+[ ] Transformer
 
 ## Research
 
