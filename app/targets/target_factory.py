@@ -14,3 +14,19 @@ class TargetFactory:
             / df["close"]
             - 1
         )
+
+    def classification_up_down(
+        self,
+        df: pd.DataFrame,
+        periods: int = 1,
+    ) -> pd.Series:
+
+        future_return = (
+            df["close"].shift(-periods)
+            / df["close"]
+            - 1
+        )
+
+        return (
+            future_return > 0
+        ).astype(int)
