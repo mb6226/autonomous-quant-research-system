@@ -1,0 +1,8 @@
+{
+  "symbol": "US30",
+  "timeframe": "1d",
+  "provider": "yahoo",
+  "rows": 1610,
+  "start": "2020-01-02 00:00:00",
+  "end": "2026-05-29 00:00:00"
+}
