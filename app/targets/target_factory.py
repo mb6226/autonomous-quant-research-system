@@ -30,3 +30,20 @@ class TargetFactory:
         return (
             future_return > 0
         ).astype(int)
+
+    def volatility(
+        self,
+        df: pd.DataFrame,
+        periods: int,
+    ) -> pd.Series:
+
+        returns = (
+            df["close"]
+            .pct_change()
+        )
+
+        return (
+            returns
+            .rolling(periods)
+            .std()
+        )
