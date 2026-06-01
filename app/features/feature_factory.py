@@ -110,4 +110,18 @@ class FeatureFactory:
             .mean()
         )
 
+        # VWAP
+
+        if "volume" in df.columns:
+
+            pv = (
+                df["close"]
+                * df["volume"]
+            )
+
+            df["vwap"] = (
+                pv.cumsum()
+                / df["volume"].cumsum()
+            )
+
         return df
