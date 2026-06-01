@@ -14,8 +14,7 @@
 ## Data
 
 [x] Binance Provider
-[ ] MT5 Provider
-[ ] Dataset Factory
+[x] Yahoo Provider
 
 ## Features
 
