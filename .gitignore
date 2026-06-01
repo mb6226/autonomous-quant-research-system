@@ -34,3 +34,9 @@ models/
 data/raw/
 data/cache/
 
+
+# AQRS Data Lake
+data/raw/
+
+# Generated datasets
+*.parquet
