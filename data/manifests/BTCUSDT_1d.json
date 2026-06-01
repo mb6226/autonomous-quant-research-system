@@ -1,0 +1,8 @@
+{
+  "symbol": "BTCUSDT",
+  "timeframe": "1d",
+  "provider": "binance",
+  "rows": 2344,
+  "start": "2020-01-01 00:00:00+00:00",
+  "end": "2026-06-01 00:00:00+00:00"
+}
