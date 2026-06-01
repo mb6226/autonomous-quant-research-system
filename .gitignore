@@ -40,3 +40,9 @@ data/raw/
 
 # Generated datasets
 *.parquet
+
+# AQRS Data Lake
+data/raw/
+
+# Parquet
+*.parquet
