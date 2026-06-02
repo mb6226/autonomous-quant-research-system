@@ -1,0 +1,8 @@
+{
+  "results": [
+    {"market": "BTCUSDT", "timeframe": "30m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
+    {"market": "BTCUSDT", "timeframe": "15m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
+    {"market": "EURUSD", "timeframe": "30m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
+    {"market": "EURUSD", "timeframe": "15m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"}
+  ]
+}
