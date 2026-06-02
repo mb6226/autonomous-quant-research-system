@@ -107,7 +107,8 @@
 [x] CatBoost Validation
 [x] Tree Model Benchmark
 [ ] Time Series Validation
-[ ] Walk Forward Validation
+[x] Walk Forward Validation
+[x] Walk Forward Tree Benchmark
 
 ## Cross Market Research
 
