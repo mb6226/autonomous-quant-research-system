@@ -23,6 +23,14 @@
 [x] ATR
 [x] VWAP
 
+## Feature Engineering
+
+[ ] Return Features
+[ ] Momentum Features
+[ ] Volatility Features
+[ ] Trend Features
+[ ] Regime Features
+
 ## Targets
 
 [x] Target Factory
