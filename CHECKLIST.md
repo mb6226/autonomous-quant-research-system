@@ -23,10 +23,10 @@
 [x] ATR
 [x] VWAP
 
-## Feature Engineering
+[## Feature Engineering
 
 [x] Return Features
-[ ] Momentum Features
+[x] Momentum Features
 [ ] Volatility Features
 [ ] Trend Features
 [ ] Regime Features
