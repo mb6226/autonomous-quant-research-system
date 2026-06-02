@@ -1,0 +1,17 @@
+{
+  "production_model": "LightGBM",
+  "benchmark_models": [
+    "LightGBM",
+    "Extra Trees",
+    "CatBoost",
+    "XGBoost",
+    "Random Forest",
+    "MLP"
+  ],
+  "validation_methods": [
+    "Walk Forward Validation",
+    "Cross Market Validation",
+    "Cross Market Stability Validation"
+  ],
+  "governance_version": "Stability Aware Promotion V2"
+}
