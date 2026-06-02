@@ -76,7 +76,7 @@
 [x] Research Dataset Builder
 [x] Experiment Runner
 [x] Research Database
-[ ] Metrics Engine
+[x] Metrics Engine
 [ ] Leaderboard
 [ ] Model Comparison
 
