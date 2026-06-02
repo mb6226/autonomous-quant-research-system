@@ -45,6 +45,10 @@ class ExperimentRunner:
             from app.models.lightgbm_classifier import LightGBMClassifierModel
 
             return LightGBMClassifierModel()
+        if model_name == "catboost":
+            from app.models.catboost_classifier import CatBoostClassifierModel
+
+            return CatBoostClassifierModel()
         raise ValueError(f"unsupported model: {model_name}")
 
     def _parse_target(self, df: pd.DataFrame, target_spec: str) -> pd.Series:
