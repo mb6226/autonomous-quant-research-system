@@ -65,22 +65,33 @@ def run_benchmark():
             "test_rows": len(X_test),
         })
 
-    # persist results for audit
-    try:
-        out_dir = "artifacts"
-        os.makedirs(out_dir, exist_ok=True)
-        with open(os.path.join(out_dir, "benchmark_tree_models.json"), "w", encoding="utf-8") as fh:
-            json.dump(results, fh, indent=2)
-        print("\nSaved benchmark results to artifacts/benchmark_tree_models.json")
-    except Exception as e:
-        print("Failed to save benchmark results:", e)
-
     # Sort by accuracy desc
     sorted_results = sorted(results, key=lambda r: (r["accuracy"] is not None, r["accuracy"] or 0), reverse=True)
 
+    # persist canonical benchmark results (trim to required fields)
+    canonical = []
+    for r in sorted_results:
+        canonical.append({
+            "model": r["model"],
+            "accuracy": r["accuracy"],
+            "precision": r["precision"],
+            "recall": r["recall"],
+            "f1": r["f1"],
+        })
+
+    try:
+        out_dir = "artifacts"
+        os.makedirs(out_dir, exist_ok=True)
+        out_path = os.path.join(out_dir, "tree_model_benchmark.json")
+        with open(out_path, "w", encoding="utf-8") as fh:
+            json.dump(canonical, fh, indent=2)
+        print("\nSaved canonical benchmark results to ", out_path)
+    except Exception as e:
+        print("Failed to save canonical benchmark results:", e)
+
     print("\nMODEL COMPARISON\n")
     print("model, accuracy, precision, recall, f1")
-    for r in sorted_results:
+    for r in canonical:
         print(f"{r['model']}, {r['accuracy']}, {r['precision']}, {r['recall']}, {r['f1']}")
 
 

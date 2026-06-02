@@ -104,7 +104,8 @@
 [x] LightGBM Classifier 
 [x] Accuracy Metrics
 [x] Confusion Matrix
-[ ] CatBoost Validation
+[x] CatBoost Validation
+[x] Tree Model Benchmark
 [ ] Time Series Validation
 [ ] Walk Forward Validation
 
