@@ -22,6 +22,33 @@ class FeatureFactory:
             / df["close"].shift(1)
         )
 
+        # Return Features
+
+        df["return_5"] = (
+            df["close"]
+            .pct_change(5)
+        )
+
+        df["return_10"] = (
+            df["close"]
+            .pct_change(10)
+        )
+
+        df["return_20"] = (
+            df["close"]
+            .pct_change(20)
+        )
+
+        df["log_return_5"] = np.log(
+            df["close"]
+            / df["close"].shift(5)
+        )
+
+        df["log_return_20"] = np.log(
+            df["close"]
+            / df["close"].shift(20)
+        )
+
         # EMA
 
         df["ema20"] = (
