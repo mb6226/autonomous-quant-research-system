@@ -78,8 +78,7 @@
 [x] Research Database
 [x] Metrics Engine
 [x] Leaderboard
-
-## Validation
+[x] Model Comparison
 
 [ ] Time Series Validation
 [ ] Walk Forward Validation
