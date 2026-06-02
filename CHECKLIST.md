@@ -27,7 +27,7 @@
 
 [x] Return Features
 [x] Momentum Features
-[ ] Volatility Features
+[x] Volatility Features
 [ ] Trend Features
 [ ] Regime Features
 
