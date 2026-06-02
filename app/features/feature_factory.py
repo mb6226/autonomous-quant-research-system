@@ -210,6 +210,21 @@ class FeatureFactory:
             / df["close"]
         )
 
+        # Trend Features
+
+        df["ema20_diff"] = df["close"] - df["ema20"]
+        df["ema50_diff"] = df["close"] - df["ema50"]
+
+        # MACD (12,26) and signal (9)
+        ema12 = df["close"].ewm(span=12).mean()
+        ema26 = df["close"].ewm(span=26).mean()
+        df["macd"] = ema12 - ema26
+        df["macd_signal"] = df["macd"].ewm(span=9).mean()
+        df["macd_hist"] = df["macd"] - df["macd_signal"]
+
+        # 20-period slope (linear fit) computed via diff of ema20
+        df["trend_slope_20"] = df["ema20"].diff(20) / 20
+
         # VWAP
 
         if "volume" in df.columns:
