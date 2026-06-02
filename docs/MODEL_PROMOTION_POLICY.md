@@ -44,3 +44,12 @@ Decision Flow
 - After a WFV benchmark run, the `ReportGenerator` will load `artifacts/tree_model_benchmark_wfv.json` and invoke the Promotion Engine.
 - The generated `promotion_decision.json` is appended to the research report and persisted as a first-class artifact.
 - Teams should treat this artifact as the canonical promotion suggestion and follow human review for final promotions.
+
+Stability Gate
+--------------
+Promotion decisions now include a stability gate. For a model to be eligible for Production it must:
+
+- Be the top-ranked model by average WFV accuracy, and
+- Have `std_accuracy` less than or equal to the configured stability threshold (default 0.02).
+
+If the top-ranked model fails the stability gate, the Promotion Engine will select the next highest-ranked model that satisfies the gate. All top-ranked models remain in the Benchmark set and detailed per-model metrics are included in the promotion artifact under `details`.

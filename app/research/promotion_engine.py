@@ -1,24 +1,27 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import json
 
 
-def classify_walk_forward_results(wfv_results: List[Dict[str, Any]], top_k: int = 5) -> Dict[str, List[str]]:
-    """Classify models into Production, Benchmark, Experimental, Archived.
+def classify_walk_forward_results(
+    wfv_results: List[Dict[str, Any]], top_k: int = 5, std_threshold: float = 0.02
+) -> Dict[str, Any]:
+    """Classify models into Production, Benchmark, Experimental, Archived and include details.
 
-    Input: list of dicts with at least: 'model' and either 'average_accuracy' or 'accuracy'.
-    Rules (V1):
-      - Production: top model by average accuracy
-      - Benchmark: top_k models
-      - Experimental: models with insufficient validation (folds missing or <1 or missing accuracy)
-      - Archived: all other models
+    New rules (V2):
+      - Production: highest-ranked validated model by average_accuracy that also has std_accuracy <= std_threshold (if std_available)
+      - If the top-ranked model fails the stability gate, pick the next highest that passes.
+      - Benchmark: top_k models by average_accuracy (regardless of stability)
+      - Experimental: models without sufficient validation (folds missing or <1 or missing accuracy)
+      - Archived: validated models outside benchmark
 
-    Returns a dict with keys: 'production','benchmark','experimental','archived'.
+    The returned dict includes lists and a `details` mapping with per-model metrics and
+    `eligible_for_production` flag.
     """
     if not isinstance(wfv_results, list):
         raise ValueError("wfv_results must be a list of model result dicts")
 
     # Normalize entries and detect validated vs unvalidated
-    normalized = []
+    normalized: List[Dict[str, Any]] = []
     for entry in wfv_results:
         name = entry.get("model")
         if name is None:
@@ -27,22 +30,56 @@ def classify_walk_forward_results(wfv_results: List[Dict[str, Any]], top_k: int 
         if acc is None:
             acc = entry.get("accuracy")
         folds = int(entry.get("folds", 0) or 0)
-        validated = (acc is not None) and (folds >= 1)
-        normalized.append({"model": name, "accuracy": acc, "folds": folds, "validated": validated})
+        std_acc: Optional[float] = None
+        # allow either 'std_accuracy' or 'std' keys
+        if "std_accuracy" in entry:
+            try:
+                std_acc = float(entry.get("std_accuracy"))
+            except Exception:
+                std_acc = None
+        elif "std" in entry:
+            try:
+                std_acc = float(entry.get("std"))
+            except Exception:
+                std_acc = None
 
-    # Experimental = models without sufficient validation
+        validated = (acc is not None) and (folds >= 1)
+        normalized.append({
+            "model": name,
+            "accuracy": acc,
+            "folds": folds,
+            "std_accuracy": std_acc,
+            "validated": validated,
+        })
+
     experimental = [e["model"] for e in normalized if not e["validated"]]
 
     # Sort validated models by accuracy desc (None -> -inf)
     validated_models = [e for e in normalized if e["validated"]]
     validated_models.sort(key=lambda x: (x["accuracy"] if x["accuracy"] is not None else float("-inf")), reverse=True)
 
+    # Build details mapping
+    details: Dict[str, Dict[str, Any]] = {}
+    for e in validated_models:
+        details[e["model"]] = {
+            "average_accuracy": e["accuracy"],
+            "std_accuracy": e.get("std_accuracy"),
+            "folds": e["folds"],
+            # eligible defaults to True unless std is present and exceeds threshold
+            "eligible_for_production": True if (e.get("std_accuracy") is None) else (e.get("std_accuracy") <= std_threshold),
+        }
+
     ranked = [e["model"] for e in validated_models]
 
-    production = [ranked[0]] if ranked else []
-    benchmark = ranked[:top_k]
+    # Determine production: highest-ranked model that is eligible
+    production: List[str] = []
+    for name in ranked:
+        d = details.get(name, {})
+        if d.get("eligible_for_production", True):
+            production = [name]
+            break
 
-    # Archived = validated models outside benchmark
+    benchmark = ranked[:top_k]
     archived = [m for m in ranked if m not in benchmark]
 
     return {
@@ -50,6 +87,7 @@ def classify_walk_forward_results(wfv_results: List[Dict[str, Any]], top_k: int 
         "benchmark": benchmark,
         "experimental": experimental,
         "archived": archived,
+        "details": details,
     }
 
 
