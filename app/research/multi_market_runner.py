@@ -19,7 +19,8 @@ class ResearchRunResult:
 
 class MultiMarketRunner:
     def __init__(self):
-        self.runner = ExperimentRunner()
+        # production runs should not sample by default
+        self.runner = ExperimentRunner(allow_sampling=False)
         self.leaderboard = AutoLeaderboard()
 
     def run(self, experiments: List[Experiment]) -> ResearchRunResult:

@@ -10,7 +10,7 @@ def run_benchmark():
     os.environ.setdefault("OMP_NUM_THREADS", "1")
     os.environ.setdefault("MKL_NUM_THREADS", "1")
 
-    runner = ExperimentRunner()
+    runner = ExperimentRunner(allow_sampling=False)
 
     market = "BTCUSDT"
     timeframe = "1d"

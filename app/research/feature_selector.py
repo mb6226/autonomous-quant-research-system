@@ -7,7 +7,8 @@ import pandas as pd
 class FeatureSelector:
 
     def __init__(self):
-        self.runner = ExperimentRunner()
+        # disable sampling for feature selection by default
+        self.runner = ExperimentRunner(allow_sampling=False)
 
     def _prepare(self, experiment: Experiment, timeframe: str = "1d") -> tuple[pd.DataFrame, list, pd.Series]:
         df = self.runner._load_dataset(experiment.market, timeframe)

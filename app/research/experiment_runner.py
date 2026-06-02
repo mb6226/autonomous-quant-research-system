@@ -24,11 +24,12 @@ class ExperimentResultSimple:
 
 class ExperimentRunner:
 
-    def __init__(self):
+    def __init__(self, allow_sampling: bool = False):
         self.dataset_factory = DatasetFactory()
         self.feature_factory = FeatureFactory()
         self.target_factory = TargetFactory()
         self.metrics = MetricsEngine()
+        self.allow_sampling = bool(allow_sampling)
 
     def _load_dataset(self, market: str, timeframe: str) -> pd.DataFrame:
         path = f"data/raw/{market}/{timeframe}.parquet"
@@ -81,13 +82,15 @@ class ExperimentRunner:
         df = self._load_dataset(market, timeframe)
 
         # optional sampling to limit CPU/time for local test runs
-        try:
-            import os
-            sample_frac = float(os.environ.get("AQRS_SAMPLE_FRAC", "1.0"))
-        except Exception:
-            sample_frac = 1.0
-        if 0.0 < sample_frac < 1.0:
-            df = df.sample(frac=sample_frac, random_state=42).reset_index(drop=True)
+        # sampling is opt-in via allow_sampling to avoid silent changes to production runs
+        if self.allow_sampling:
+            try:
+                import os
+                sample_frac = float(os.environ.get("AQRS_SAMPLE_FRAC", "1.0"))
+            except Exception:
+                sample_frac = 1.0
+            if 0.0 < sample_frac < 1.0:
+                df = df.sample(frac=sample_frac, random_state=42).reset_index(drop=True)
 
         # build features
         df = self.feature_factory.build(df)
