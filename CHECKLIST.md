@@ -125,7 +125,8 @@
 [ ] Feature Selection
 [ ] Hyperparameter Search
 [ ] Tree Family Review
-
+ 
+[x] Walk Forward Validation
 ## Governance
 
 [x] Model Lifecycle Policy
