@@ -125,3 +125,7 @@
 [ ] Feature Selection
 [ ] Hyperparameter Search
 [ ] Tree Family Review
+
+## Governance
+
+[x] Model Lifecycle Policy
