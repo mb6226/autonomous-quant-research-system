@@ -272,16 +272,18 @@ class FeatureFactory:
 
         # VWAP
 
-        if "volume" in df.columns:
+        if "volume" in df.columns and df["volume"].sum() > 0:
+            pv = df["close"] * df["volume"]
+            vol_cum = df["volume"].cumsum()
+            pv_cum = pv.cumsum()
 
-            pv = (
-                df["close"]
-                * df["volume"]
+            # avoid divide-by-zero for initial rows
+            df["vwap"] = np.where(
+                vol_cum > 0,
+                pv_cum / vol_cum,
+                0.0,
             )
-
-            df["vwap"] = (
-                pv.cumsum()
-                / df["volume"].cumsum()
-            )
+        else:
+            df["vwap"] = 0.0
 
         return df
