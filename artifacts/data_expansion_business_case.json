@@ -1,0 +1,10 @@
+{
+  "current_rows": 127972,
+  "projected_rows_30m": 317146,
+  "projected_rows_15m": 506320,
+  "projected_rows_5m": 1263016,
+  "growth_factor_30m": 2.48,
+  "growth_factor_15m": 3.96,
+  "growth_factor_5m": 9.87,
+  "recommended_next_action": "Acquire 30m data for BTCUSDT and EURUSD, validate pipeline, then expand to 15m/5m as needed."
+}
