@@ -1,0 +1,32 @@
+{
+  "BTCUSDT": {
+    "current_rows": 72603,
+    "projected_rows_30m": 185005,
+    "projected_rows_15m": 297407,
+    "projected_rows_5m": 747015
+  },
+  "EURUSD": {
+    "current_rows": 17137,
+    "projected_rows_30m": 41737,
+    "projected_rows_15m": 66337,
+    "projected_rows_5m": 164737
+  },
+  "XAUUSD": {
+    "current_rows": 16123,
+    "projected_rows_30m": 38957,
+    "projected_rows_15m": 61791,
+    "projected_rows_5m": 153127
+  },
+  "USOIL": {
+    "current_rows": 15869,
+    "projected_rows_30m": 38269,
+    "projected_rows_15m": 60669,
+    "projected_rows_5m": 150269
+  },
+  "US30": {
+    "current_rows": 6240,
+    "projected_rows_30m": 13178,
+    "projected_rows_15m": 20116,
+    "projected_rows_5m": 47868
+  }
+}
