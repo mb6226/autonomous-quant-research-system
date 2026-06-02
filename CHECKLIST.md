@@ -69,7 +69,7 @@
 
 [ ] Gradient Boosting
 [x] XGBoost
-[ ] LightGBM
+[x] LightGBM
 [ ] CatBoost
 
 ### SVM Models
@@ -97,11 +97,22 @@
 
 [x] Random Forest Classifier
 [x] XGBoost Classifier
+[x] LightGBM Classifier 
 [x] Accuracy Metrics
 [x] Confusion Matrix
 
 [ ] Time Series Validation
 [ ] Walk Forward Validation
+
+## Cross Market Research
+
+[x] BTCUSDT Benchmark
+[ ] EURUSD Benchmark
+[x] XAUUSD Benchmark
+[x] USOIL Benchmark
+[x] US30 Benchmark
+
+[ ] Multi Market Leaderboard
 
 ## Optimization
 
