@@ -56,47 +56,50 @@ if "target" in features:
 X = df[features]
 y = df["target"]
 
-split = int(
-    len(df) * 0.8
-)
-
-X_train = X.iloc[:split]
-X_test = X.iloc[split:]
-
-y_train = y.iloc[:split]
-y_test = y.iloc[split:]
-
-model = (
-    XGBoostClassifierModel()
-    .train(
-        X_train,
-        y_train,
+if X.shape[1] == 0 or len(y) == 0:
+    print("SKIP: no numeric features or no target after preprocessing")
+else:
+    split = int(
+        len(df) * 0.8
     )
-)
 
-pred = model.predict(
-    X_test
-)
+    X_train = X.iloc[:split]
+    X_test = X.iloc[split:]
 
-metrics = (
-    MetricsEngine()
-    .classification_metrics(
-        y_test,
-        pred,
+    y_train = y.iloc[:split]
+    y_test = y.iloc[split:]
+
+    model = (
+        XGBoostClassifierModel()
+        .train(
+            X_train,
+            y_train,
+        )
     )
-)
 
-print()
-print("TRAIN =", len(X_train))
-print("TEST =", len(X_test))
-print()
-
-print(metrics)
-print()
-
-print(
-    confusion_matrix(
-        y_test,
-        pred,
+    pred = model.predict(
+        X_test
     )
-)
+
+    metrics = (
+        MetricsEngine()
+        .classification_metrics(
+            y_test,
+            pred,
+        )
+    )
+
+    print()
+    print("TRAIN =", len(X_train))
+    print("TEST =", len(X_test))
+    print()
+
+    print(metrics)
+    print()
+
+    print(
+        confusion_matrix(
+            y_test,
+            pred,
+        )
+    )
