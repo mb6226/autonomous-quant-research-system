@@ -180,6 +180,36 @@ class FeatureFactory:
             .mean()
         )
 
+        # Volatility Features
+
+        df["volatility_5"] = (
+            df["return_1"]
+            .rolling(5)
+            .std()
+        )
+
+        df["volatility_10"] = (
+            df["return_1"]
+            .rolling(10)
+            .std()
+        )
+
+        df["volatility_20"] = (
+            df["return_1"]
+            .rolling(20)
+            .std()
+        )
+
+        df["atr_ratio"] = (
+            df["atr14"]
+            / df["close"]
+        )
+
+        df["high_low_ratio"] = (
+            (df["high"] - df["low"]) 
+            / df["close"]
+        )
+
         # VWAP
 
         if "volume" in df.columns:
