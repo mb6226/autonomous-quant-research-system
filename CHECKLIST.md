@@ -115,6 +115,7 @@
 [x] US30 Benchmark
 
 [x] Multi Market Leaderboard
+[x] Multi Market Research Runner
 
 ## Optimization
 

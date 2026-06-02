@@ -5,18 +5,8 @@ import pandas as pd
 from app.data.factory.dataset_factory import DatasetFactory
 from app.features.feature_factory import FeatureFactory
 from app.targets.target_factory import TargetFactory
-from app.research.experiment_generator import Experiment
 from app.research.experiment_generator import Experiment as ExpType
-from app.research import experiment_generator
-from app.research import experiment_result as er
-from app.research.experiment_result import ExperimentResult as ResearchExperimentResult
-from app.research import experiment_result
-from app.research import experiment_generator
-from app.research import experiment_result
-from app.research import experiment_generator
-from app.research import experiment_result
-
-from app.research.metrics import MetricsEngine if False else None
+from app.research.metrics import MetricsEngine
 
 
 @dataclass
@@ -38,7 +28,7 @@ class ExperimentRunner:
         self.dataset_factory = DatasetFactory()
         self.feature_factory = FeatureFactory()
         self.target_factory = TargetFactory()
-        self.metrics = __import__("app.research.metrics", fromlist=["MetricsEngine"]).MetricsEngine()
+        self.metrics = MetricsEngine()
 
     def _load_dataset(self, market: str, timeframe: str) -> pd.DataFrame:
         path = f"data/raw/{market}/{timeframe}.parquet"
@@ -81,6 +71,15 @@ class ExperimentRunner:
 
         # load dataset
         df = self._load_dataset(market, timeframe)
+
+        # optional sampling to limit CPU/time for local test runs
+        try:
+            import os
+            sample_frac = float(os.environ.get("AQRS_SAMPLE_FRAC", "1.0"))
+        except Exception:
+            sample_frac = 1.0
+        if 0.0 < sample_frac < 1.0:
+            df = df.sample(frac=sample_frac, random_state=42).reset_index(drop=True)
 
         # build features
         df = self.feature_factory.build(df)
@@ -148,26 +147,4 @@ class ExperimentRunner:
                 accuracy=None,
                 rows=len(df),
             )
-from app.research.dataset_builder import (
-    ResearchDatasetBuilder,
-)
-
-
-class ExperimentRunner:
-
-    def run(
-        self,
-        experiment,
-        df,
-    ):
-
-        dataset = (
-            ResearchDatasetBuilder()
-            .build(df)
-        )
-
-        return {
-            "experiment": experiment.name,
-            "rows": len(dataset),
-            "columns": len(dataset.columns),
-        }
+# end of file
