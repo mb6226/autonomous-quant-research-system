@@ -62,3 +62,7 @@ def test_catboost_classifier_run():
     print(cm)
 
     assert acc > 0
+
+
+if __name__ == "__main__":
+    test_catboost_classifier_run()

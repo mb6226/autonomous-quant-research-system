@@ -41,6 +41,10 @@ class ExperimentRunner:
             from app.models.xgboost_classifier import XGBoostClassifierModel
 
             return XGBoostClassifierModel()
+        if model_name == "random_forest":
+            from app.models.random_forest_classifier import RandomForestClassifierModel
+
+            return RandomForestClassifierModel()
         if model_name == "lightgbm":
             from app.models.lightgbm_classifier import LightGBMClassifierModel
 
