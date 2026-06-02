@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import pandas as pd
 
 from app.data.jobs.download_job import DownloadJob
@@ -57,7 +57,8 @@ def to_iso(dt: datetime) -> str:
 
 def run_acquisition(tasks):
     status = []
-    now = datetime.utcnow()
+    # use timezone-aware UTC now
+    now = datetime.now(timezone.utc)
     for task in tasks:
         market = task["market"]
         timeframe = task["timeframe"]
@@ -96,8 +97,17 @@ def run_acquisition(tasks):
                 df = prov.download(job)
             else:
                 prov = YahooProvider()
-                interval = timeframe if timeframe.endswith("d") else timeframe
-                df = prov.download_history(job.symbol + "=X" if job.symbol.isalpha() else job.symbol, start_date, end_date, interval=job.timeframe)
+                # yfinance prefers date strings like YYYY-MM-DD (no fractional seconds)
+                def to_ymd(s: str) -> str:
+                    return s.split("T")[0]
+
+                ticker = job.symbol + "=X" if job.symbol.isalpha() else job.symbol
+                df = prov.download_history(
+                    ticker,
+                    to_ymd(start_date),
+                    to_ymd(end_date),
+                    interval=job.timeframe,
+                )
 
             if df is None or df.empty:
                 status.append({"market": market, "timeframe": timeframe, "rows": 0, "start_date": start_date, "end_date": end_date, "status": "no_data"})
