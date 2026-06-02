@@ -95,6 +95,8 @@
 
 [x] Auto Leaderboard
 
+[x] Research Report Generator
+
 ## Classification Research
 
 [x] Random Forest Classifier
