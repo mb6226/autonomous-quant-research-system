@@ -1,0 +1,38 @@
+{
+  "production_model": "LightGBM",
+  "benchmark_models": [
+    "LightGBM",
+    "Extra Trees",
+    "CatBoost",
+    "XGBoost",
+    "Random Forest",
+    "MLP"
+  ],
+  "validation_status": {
+    "LightGBM": {
+      "walk_forward": "passed",
+      "cross_market": "passed",
+      "cross_market_stability": "passed",
+      "mean_accuracy": 0.5157014724232363,
+      "std_accuracy": 0.003956615651663845
+    },
+    "Extra Trees": {
+      "walk_forward": "passed",
+      "cross_market": "passed",
+      "cross_market_stability": "passed",
+      "mean_accuracy": 0.5105896310555862,
+      "std_accuracy": 0.005037262866401753
+    },
+    "MLP": {
+      "walk_forward": "mixed",
+      "cross_market": "mixed",
+      "cross_market_stability": "failed",
+      "mean_accuracy": 0.49615235344952396,
+      "std_accuracy": 0.020796574178160037
+    }
+  },
+  "governance_status": {
+    "production_allowed": true,
+    "notes": "LightGBM selected as production baseline after passing stability and cross-market validations. MLP rejected due to high variance."
+  }
+}
