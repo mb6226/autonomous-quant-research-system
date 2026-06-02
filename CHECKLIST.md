@@ -92,7 +92,7 @@
 
 [x] Random Forest Classifier
 [ ] XGBoost Classifier
-[ ] Accuracy Metrics
+[x] Accuracy Metrics
 [ ] Confusion Matrix
 
 [ ] Time Series Validation
