@@ -93,6 +93,8 @@
 [x] Leaderboard
 [x] Model Comparison
 
+[x] Auto Leaderboard
+
 ## Classification Research
 
 [x] Random Forest Classifier
