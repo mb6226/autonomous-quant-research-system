@@ -132,3 +132,4 @@
 
 [x] Model Lifecycle Policy
 [x] Promotion Engine
+[x] Promotion Automation

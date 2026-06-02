@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Any
 
 from app.research.auto_leaderboard import AutoLeaderboard
+from app.research.promotion_engine import classify_walk_forward_results, write_promotion_to_file, load_results_from_file
 
 
 class ReportGenerator:
@@ -135,5 +136,39 @@ class ReportGenerator:
             f.write(f"- Run type: {run_type}\n")
             results_source = "in-memory" if hasattr(research_run_result, "results") else "artifacts/research_results.json"
             f.write(f"- Results source: {results_source}\n")
+
+        # After generating the report, attempt to load WFV benchmark and run promotion engine
+        wfv_path = os.path.join(out_dir, "tree_model_benchmark_wfv.json")
+        promotion_path = os.path.join(out_dir, "promotion_decision.json")
+        promotion = None
+        try:
+            if os.path.exists(wfv_path):
+                wfv = load_results_from_file(wfv_path)
+                promotion = classify_walk_forward_results(wfv, top_k=5)
+                write_promotion_to_file(promotion, promotion_path)
+        except Exception:
+            promotion = None
+
+        # Append promotion decisions to the report
+        try:
+            with open(out_path, "a", encoding="utf-8") as f:
+                f.write("\n## Promotion Decisions\n\n")
+                if promotion is None:
+                    f.write("No promotion decisions available (WFV artifact missing or invalid).\n")
+                else:
+                    f.write("**Production Models**\n\n")
+                    for m in promotion.get("production", []):
+                        f.write(f"- {m}\n")
+                    f.write("\n**Benchmark Models**\n\n")
+                    for m in promotion.get("benchmark", []):
+                        f.write(f"- {m}\n")
+                    f.write("\n**Experimental Models**\n\n")
+                    for m in promotion.get("experimental", []):
+                        f.write(f"- {m}\n")
+                    f.write("\n**Archived Models**\n\n")
+                    for m in promotion.get("archived", []):
+                        f.write(f"- {m}\n")
+        except Exception:
+            pass
 
         return out_path
