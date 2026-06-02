@@ -55,7 +55,7 @@
 ### Boosting Models
 
 [ ] Gradient Boosting
-[ ] XGBoost
+[x] XGBoost
 [ ] LightGBM
 [ ] CatBoost
 
