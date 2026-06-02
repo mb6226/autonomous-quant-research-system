@@ -136,3 +136,7 @@
 [x] Stability Aware Promotion
 [x] Promotion Decision Audit
 [x] Governance Consistency Audit
+
+## Validation Framework
+
+[x] Cross Market Validation
