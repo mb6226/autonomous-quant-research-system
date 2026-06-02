@@ -32,7 +32,7 @@
 [x] Regime Features
 
 ## Feature Analysis
-
+[x] Auto Feature Selection
 [x] Feature Importance
 [x] Top Feature Ranking
 
