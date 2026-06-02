@@ -1,0 +1,124 @@
+{
+  "datasets": [
+    {
+      "end_date": "2026-06-01T00:00:00+00:00",
+      "market": "BTCUSDT",
+      "missing_values": 0,
+      "rows": 2344,
+      "start_date": "2020-01-01T00:00:00+00:00",
+      "timeframe": "1d"
+    },
+    {
+      "end_date": "2026-06-01T00:00:00+00:00",
+      "market": "BTCUSDT",
+      "missing_values": 32,
+      "rows": 56201,
+      "start_date": "2020-01-01T00:00:00+00:00",
+      "timeframe": "1h"
+    },
+    {
+      "end_date": "2026-06-01T00:00:00+00:00",
+      "market": "BTCUSDT",
+      "missing_values": 1,
+      "rows": 14058,
+      "start_date": "2020-01-01T00:00:00+00:00",
+      "timeframe": "4h"
+    },
+    {
+      "end_date": "2026-05-29T00:00:00",
+      "market": "EURUSD",
+      "missing_values": 673,
+      "rows": 1668,
+      "start_date": "2020-01-01T00:00:00",
+      "timeframe": "1d"
+    },
+    {
+      "end_date": "2026-05-29T21:00:00+00:00",
+      "market": "EURUSD",
+      "missing_values": 5123,
+      "rows": 12300,
+      "start_date": "2024-06-02T23:00:00+00:00",
+      "timeframe": "1h"
+    },
+    {
+      "end_date": "2026-05-29T20:00:00+00:00",
+      "market": "EURUSD",
+      "missing_values": 1188,
+      "rows": 3169,
+      "start_date": "2024-06-02T20:00:00+00:00",
+      "timeframe": "4h"
+    },
+    {
+      "end_date": "2026-05-29T00:00:00",
+      "market": "US30",
+      "missing_values": 730,
+      "rows": 1610,
+      "start_date": "2020-01-02T00:00:00",
+      "timeframe": "1d"
+    },
+    {
+      "end_date": "2026-05-29T19:30:00+00:00",
+      "market": "US30",
+      "missing_values": 13938,
+      "rows": 3469,
+      "start_date": "2024-06-03T13:30:00+00:00",
+      "timeframe": "1h"
+    },
+    {
+      "end_date": "2026-05-29T16:00:00+00:00",
+      "market": "US30",
+      "missing_values": 3191,
+      "rows": 1161,
+      "start_date": "2024-06-03T12:00:00+00:00",
+      "timeframe": "4h"
+    },
+    {
+      "end_date": "2026-05-29T00:00:00",
+      "market": "USOIL",
+      "missing_values": 728,
+      "rows": 1612,
+      "start_date": "2020-01-02T00:00:00",
+      "timeframe": "1d"
+    },
+    {
+      "end_date": "2026-06-01T03:00:00+00:00",
+      "market": "USOIL",
+      "missing_values": 6278,
+      "rows": 11200,
+      "start_date": "2024-06-02T22:00:00+00:00",
+      "timeframe": "1h"
+    },
+    {
+      "end_date": "2026-06-01T00:00:00+00:00",
+      "market": "USOIL",
+      "missing_values": 1313,
+      "rows": 3057,
+      "start_date": "2024-06-02T20:00:00+00:00",
+      "timeframe": "4h"
+    },
+    {
+      "end_date": "2026-05-29T00:00:00",
+      "market": "XAUUSD",
+      "missing_values": 728,
+      "rows": 1612,
+      "start_date": "2020-01-02T00:00:00",
+      "timeframe": "1d"
+    },
+    {
+      "end_date": "2026-06-01T03:00:00+00:00",
+      "market": "XAUUSD",
+      "missing_values": 6061,
+      "rows": 11417,
+      "start_date": "2024-06-02T22:00:00+00:00",
+      "timeframe": "1h"
+    },
+    {
+      "end_date": "2026-06-01T00:00:00+00:00",
+      "market": "XAUUSD",
+      "missing_values": 1276,
+      "rows": 3094,
+      "start_date": "2024-06-02T20:00:00+00:00",
+      "timeframe": "4h"
+    }
+  ]
+}
