@@ -25,7 +25,7 @@
 
 ## Feature Engineering
 
-[ ] Return Features
+[x] Return Features
 [ ] Momentum Features
 [ ] Volatility Features
 [ ] Trend Features
