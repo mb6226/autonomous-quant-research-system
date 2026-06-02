@@ -49,49 +49,6 @@ class FeatureFactory:
             / df["close"].shift(20)
         )
 
-        # Momentum Features
-
-        df["roc_5"] = (
-            df["close"]
-            / df["close"].shift(5)
-            - 1
-        )
-
-        df["roc_10"] = (
-            df["close"]
-            / df["close"].shift(10)
-            - 1
-        )
-
-        df["roc_20"] = (
-            df["close"]
-            / df["close"].shift(20)
-            - 1
-        )
-
-        df["ema20_distance"] = (
-            df["close"]
-            / df["ema20"]
-            - 1
-        )
-
-        df["ema50_distance"] = (
-            df["close"]
-            / df["ema50"]
-            - 1
-        )
-
-        df["ema200_distance"] = (
-            df["close"]
-            / df["ema200"]
-            - 1
-        )
-
-        df["rsi_momentum"] = (
-            df["rsi14"]
-            - df["rsi14"].shift(5)
-        )
-
         # EMA
 
         df["ema20"] = (
@@ -147,6 +104,49 @@ class FeatureFactory:
                 100
                 / (1 + rs)
             )
+        )
+
+        # Momentum Features
+
+        df["roc_5"] = (
+            df["close"]
+            / df["close"].shift(5)
+            - 1
+        )
+
+        df["roc_10"] = (
+            df["close"]
+            / df["close"].shift(10)
+            - 1
+        )
+
+        df["roc_20"] = (
+            df["close"]
+            / df["close"].shift(20)
+            - 1
+        )
+
+        df["ema20_distance"] = (
+            df["close"]
+            / df["ema20"]
+            - 1
+        )
+
+        df["ema50_distance"] = (
+            df["close"]
+            / df["ema50"]
+            - 1
+        )
+
+        df["ema200_distance"] = (
+            df["close"]
+            / df["ema200"]
+            - 1
+        )
+
+        df["rsi_momentum"] = (
+            df["rsi14"]
+            - df["rsi14"].shift(5)
         )
 
         # ATR 14
