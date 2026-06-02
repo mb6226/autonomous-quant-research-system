@@ -225,6 +225,15 @@ class FeatureFactory:
         # 20-period slope (linear fit) computed via diff of ema20
         df["trend_slope_20"] = df["ema20"].diff(20) / 20
 
+        # Binary trend signals and short EMA slopes
+        df["ema20_above_50"] = (df["ema20"] > df["ema50"]).astype(int)
+        df["ema50_above_200"] = (df["ema50"] > df["ema200"]).astype(int)
+        df["ema20_above_200"] = (df["ema20"] > df["ema200"]).astype(int)
+
+        df["ema20_slope"] = df["ema20"].pct_change(5)
+        df["ema50_slope"] = df["ema50"].pct_change(5)
+        df["ema200_slope"] = df["ema200"].pct_change(5)
+
         # VWAP
 
         if "volume" in df.columns:
