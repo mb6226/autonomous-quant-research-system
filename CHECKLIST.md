@@ -77,8 +77,7 @@
 [x] Experiment Runner
 [x] Research Database
 [x] Metrics Engine
-[ ] Leaderboard
-[ ] Model Comparison
+[x] Leaderboard
 
 ## Validation
 
