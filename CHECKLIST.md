@@ -131,3 +131,4 @@
 ## Governance
 
 [x] Model Lifecycle Policy
+[x] Promotion Engine
