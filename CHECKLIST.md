@@ -135,3 +135,4 @@
 [x] Promotion Automation
 [x] Stability Aware Promotion
 [x] Promotion Decision Audit
+[x] Governance Consistency Audit
