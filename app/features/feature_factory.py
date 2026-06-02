@@ -234,6 +234,27 @@ class FeatureFactory:
         df["ema50_slope"] = df["ema50"].pct_change(5)
         df["ema200_slope"] = df["ema200"].pct_change(5)
 
+        # Regime Features
+
+        df["return_zscore_20"] = (
+            df["return_1"]
+            - df["return_1"].rolling(20).mean()
+        ) / df["return_1"].rolling(20).std()
+
+        df["skew_20"] = df["return_1"].rolling(20).skew()
+        df["kurt_20"] = df["return_1"].rolling(20).kurt()
+
+        # Volatility regime: 1 if current vol > rolling median historical vol
+        df["volatility_regime"] = (
+            df["volatility_20"]
+            > df["volatility_20"].rolling(100).median()
+        ).astype(int)
+
+        # Bull regime when EMAs align upward
+        df["bull_regime"] = (
+            (df["ema20_above_50"] == 1) & (df["ema50_above_200"] == 1)
+        ).astype(int)
+
         # VWAP
 
         if "volume" in df.columns:

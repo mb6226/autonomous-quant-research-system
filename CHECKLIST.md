@@ -29,7 +29,7 @@
 [x] Momentum Features
 [x] Volatility Features
 [x] Trend Features
-[ ] Regime Features
+[x] Regime Features
 
 ## Targets
 
