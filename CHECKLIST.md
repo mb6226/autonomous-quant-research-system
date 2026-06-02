@@ -88,6 +88,13 @@
 [x] Leaderboard
 [x] Model Comparison
 
+## Classification Research
+
+[ ] Random Forest Classifier
+[ ] XGBoost Classifier
+[ ] Accuracy Metrics
+[ ] Confusion Matrix
+
 [ ] Time Series Validation
 [ ] Walk Forward Validation
 
