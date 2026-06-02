@@ -16,7 +16,7 @@ def run_benchmark():
     timeframe = "1d"
     target_spec = "classification_up_down_5"
 
-    models = ["random_forest", "xgboost", "lightgbm", "catboost"]
+    models = ["random_forest", "extra_trees", "xgboost", "lightgbm", "catboost"]
 
     results = []
 

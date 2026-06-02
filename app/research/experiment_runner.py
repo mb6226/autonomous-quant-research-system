@@ -46,6 +46,10 @@ class ExperimentRunner:
             from app.models.random_forest_classifier import RandomForestClassifierModel
 
             return RandomForestClassifierModel()
+        if model_name == "extra_trees":
+            from app.models.extra_trees_classifier import ExtraTreesClassifierModel
+
+            return ExtraTreesClassifierModel()
         if model_name == "lightgbm":
             from app.models.lightgbm_classifier import LightGBMClassifierModel
 

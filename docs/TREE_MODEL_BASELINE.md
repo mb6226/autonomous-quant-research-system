@@ -6,10 +6,12 @@ This document records the canonical benchmark for tree-based models on the BTCUS
 
 Model Ranking (by accuracy)
 
+
 1. xgboost — accuracy 0.5634
 2. random_forest — accuracy 0.5290
 3. lightgbm — accuracy 0.5269
 4. catboost — accuracy 0.5054
+5. extra_trees — accuracy 0.4968
 
 Metrics Table
 
@@ -19,6 +21,7 @@ Metrics Table
 | random_forest | 0.5290322581 | 0.5510204082 | 0.3461538462 | 0.4251968504 |
 | lightgbm | 0.5268817204 | 0.5333333333 | 0.4786324786 | 0.5045045045 |
 | catboost | 0.5053763441 | 0.5129870130 | 0.3376068376 | 0.4072164948 |
+| extra_trees | 0.4967741935 | 0.5 | 0.5384615385 | 0.5185185185 |
 
 Best Model
 
