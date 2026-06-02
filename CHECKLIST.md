@@ -31,6 +31,11 @@
 [x] Trend Features
 [x] Regime Features
 
+## Feature Analysis
+
+[ ] Feature Importance
+[ ] Top Feature Ranking
+
 ## Targets
 
 [x] Target Factory
