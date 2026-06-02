@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# Project-wide runner: enforces CPU limits (systemd or cpulimit) and sane BLAS thread settings.
+# Usage: ./aqrs --quota 10% -- <command...>
+
+set -euo pipefail
+
+QUOTA="10%"
+LIMIT=10
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --quota)
+      QUOTA="$2"; shift 2;;
+    --limit)
+      LIMIT="$2"; shift 2;;
+    --)
+      shift; break;;
+    *)
+      break;;
+  esac
+done
+
+if [[ $# -eq 0 ]]; then
+  echo "Usage: $0 [--quota 10% | --limit 10] -- <command...>"
+  exit 2
+fi
+
+CMD=("$@")
+
+# Set BLAS/OMP thread limits to avoid uncontrolled multithreading
+export OMP_NUM_THREADS=${OMP_NUM_THREADS:-1}
+export MKL_NUM_THREADS=${MKL_NUM_THREADS:-1}
+export OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-1}
+export NUMEXPR_NUM_THREADS=${NUMEXPR_NUM_THREADS:-1}
+
+# detect systemd as PID 1
+if [[ "$(ps -p 1 -o comm=)" == "systemd" ]]; then
+  echo "systemd detected — using systemd-run with CPUQuota=${QUOTA}"
+  # Run in a transient scope so all child processes are covered
+  exec systemd-run --scope -p CPUQuota=${QUOTA} --unit=aqrs-$(date +%s) bash -c "${CMD[*]}"
+else
+  if ! command -v cpulimit >/dev/null 2>&1; then
+    echo "systemd not detected and cpulimit missing. Install cpulimit or run under systemd." >&2
+    exit 1
+  fi
+  echo "systemd not detected — launching command and attaching cpulimit -l ${LIMIT}"
+  "${CMD[@]}" &
+  PID=$!
+  echo "Started PID $PID; applying cpulimit -l ${LIMIT}"
+  cpulimit -p $PID -l "${LIMIT}" &
+  CPULIMIT_PID=$!
+  wait $PID
+  kill $CPULIMIT_PID 2>/dev/null || true
+fi
