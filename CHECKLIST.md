@@ -107,12 +107,12 @@
 ## Cross Market Research
 
 [x] BTCUSDT Benchmark
-[ ] EURUSD Benchmark
+[x] EURUSD Benchmark
 [x] XAUUSD Benchmark
 [x] USOIL Benchmark
 [x] US30 Benchmark
 
-[ ] Multi Market Leaderboard
+[x] Multi Market Leaderboard
 
 ## Optimization
 
