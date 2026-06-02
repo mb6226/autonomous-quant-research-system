@@ -262,6 +262,14 @@ class FeatureFactory:
         df["bear_regime_v1"] = (df["close"] < df["ema200"]).astype(int)
         df["low_vol_regime_v1"] = (df["volatility_20"] < median_vol).astype(int)
 
+        # Backwards-compatible column names expected by tests
+        df["bear_regime"] = df["bear_regime_v1"]
+        df["high_vol_regime"] = (df["volatility_20"] > median_vol).astype(int)
+        df["low_vol_regime"] = df["low_vol_regime_v1"]
+
+        # trend_regime: positive recent trend slope
+        df["trend_regime"] = (df["trend_slope_20"] > 0).astype(int)
+
         # VWAP
 
         if "volume" in df.columns:
