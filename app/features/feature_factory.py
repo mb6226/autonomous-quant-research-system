@@ -255,6 +255,13 @@ class FeatureFactory:
             (df["ema20_above_50"] == 1) & (df["ema50_above_200"] == 1)
         ).astype(int)
 
+        # Regime Features v1 (simple)
+        median_vol = df["volatility_20"].rolling(100).median()
+
+        df["bull_regime_v1"] = (df["close"] > df["ema200"]).astype(int)
+        df["bear_regime_v1"] = (df["close"] < df["ema200"]).astype(int)
+        df["low_vol_regime_v1"] = (df["volatility_20"] < median_vol).astype(int)
+
         # VWAP
 
         if "volume" in df.columns:
