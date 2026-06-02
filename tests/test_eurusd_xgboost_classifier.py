@@ -37,8 +37,6 @@ df["target"] = (
     )
 )
 
-df = df.dropna()
-
 features = [
     c
     for c in df.columns
@@ -52,6 +50,9 @@ features = [
 
 if "target" in features:
     features.remove("target")
+
+# drop rows only for the selected numeric features + target (avoid dropping for all-NaN engineered cols)
+df = df.dropna(subset=features + ["target"]) if len(features) > 0 else df
 
 X = df[features]
 y = df["target"]
