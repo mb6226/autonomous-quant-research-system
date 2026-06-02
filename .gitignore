@@ -46,3 +46,6 @@ data/raw/
 
 # Parquet
 *.parquet
+
+# Transient experiment artifacts
+artifacts/

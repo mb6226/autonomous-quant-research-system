@@ -75,6 +75,14 @@ class ReportGenerator:
             sorted_results = sorted(results, key=lambda r: (acc_of(r) is not None, acc_of(r) or 0), reverse=True)
             top_list = sorted_results[:10]
 
+        # detect run type (sampled vs full)
+        try:
+            sample_frac_env = float(os.environ.get("AQRS_SAMPLE_FRAC", "1.0"))
+        except Exception:
+            sample_frac_env = 1.0
+
+        run_type = "FULL RUN" if sample_frac_env >= 1.0 else "SAMPLED RUN"
+
         # load feature ranking
         feature_ranking = self._load_feature_ranking()
 
@@ -124,6 +132,8 @@ class ReportGenerator:
 
             f.write("\n## Notes\n\n")
             f.write(f"- Generation timestamp: {datetime.utcnow().isoformat()}Z\n")
-            f.write(f"- Results source: {"in-memory" if hasattr(research_run_result, 'results') else 'artifacts/research_results.json'}\n")
+            f.write(f"- Run type: {run_type}\n")
+            results_source = "in-memory" if hasattr(research_run_result, "results") else "artifacts/research_results.json"
+            f.write(f"- Results source: {results_source}\n")
 
         return out_path
