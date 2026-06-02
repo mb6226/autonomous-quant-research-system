@@ -134,3 +134,4 @@
 [x] Promotion Engine
 [x] Promotion Automation
 [x] Stability Aware Promotion
+[x] Promotion Decision Audit
