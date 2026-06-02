@@ -91,7 +91,7 @@
 ## Classification Research
 
 [x] Random Forest Classifier
-[ ] XGBoost Classifier
+[x] XGBoost Classifier
 [x] Accuracy Metrics
 [x] Confusion Matrix
 
