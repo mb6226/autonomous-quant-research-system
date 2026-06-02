@@ -33,7 +33,7 @@
 
 ## Feature Analysis
 
-[ ] Feature Importance
+[x] Feature Importance
 [ ] Top Feature Ranking
 
 ## Targets
