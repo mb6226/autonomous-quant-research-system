@@ -58,6 +58,10 @@ class ExperimentRunner:
             from app.models.catboost_classifier import CatBoostClassifierModel
 
             return CatBoostClassifierModel()
+        if model_name == "mlp":
+            from app.models.mlp_classifier import MLPClassifierModel
+
+            return MLPClassifierModel()
         raise ValueError(f"unsupported model: {model_name}")
 
     def _parse_target(self, df: pd.DataFrame, target_spec: str) -> pd.Series:

@@ -26,6 +26,14 @@ Operational Notes
 - Promotion runs should be persisted (artifact) and recorded in the research database.
 - Promotion actions should be performed only after human review for major changes.
 
+Stability Rule (V2)
+--------------------
+- For stability-sensitive models (e.g., neural nets), a stability validation artifact may be produced at `artifacts/{model}_stability.json`.
+- When present, the Promotion Engine will consult this artifact. A model is only eligible for `production` if:
+	- `production_allowed` is `true` in the stability artifact, or
+	- `std_accuracy` exists and is <= 0.02.
+- If the top-ranked model fails the stability gate it will be excluded from `production` selection; the engine will pick the next highest-ranked eligible model. The model may still appear in `benchmark` for tracking and further analysis.
+
 Promotion Artifact
 ------------------
 The promotion engine produces a persistent artifact at `artifacts/promotion_decision.json` with the following structure:
