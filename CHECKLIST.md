@@ -79,8 +79,8 @@
 
 ### Neural Networks
 
-[ ] MLP
-[ ] LSTM
+[x] MLP
+[x] Neural Baseline Review
 [ ] GRU
 [ ] Transformer
 

@@ -1,0 +1,12 @@
+{
+  "champion": "mlp",
+  "ranking": [
+    "mlp",
+    "lightgbm",
+    "catboost",
+    "xgboost",
+    "random_forest",
+    "extra_trees"
+  ],
+  "recommendation": "Production candidate (human review required)"
+}
