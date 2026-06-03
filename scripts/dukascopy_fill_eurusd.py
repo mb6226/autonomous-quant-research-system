@@ -4,10 +4,16 @@
 This script appends month-by-month, supports resume, deduplicates, updates manifest,
 and prints rows/start_date/end_date after merging.
 """
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 import time
 import pandas as pd
+
+# Ensure project root is on sys.path so `from app...` imports succeed when running script directly
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from app.data.providers.dukascopy.downloader import DukascopyDownloader
 

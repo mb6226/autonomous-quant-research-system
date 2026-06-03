@@ -19,9 +19,7 @@ class DukascopyDownloader:
 
         self.symbol = symbol
 
-        self.output_dir = Path(
-            "data" / "raw" / self.symbol
-        )
+        self.output_dir = Path("data") / "raw" / self.symbol
 
         self.output_dir.mkdir(
             parents=True,
