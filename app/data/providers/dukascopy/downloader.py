@@ -4,6 +4,11 @@ import time
 import requests
 import pandas as pd
 import pyarrow
+import lzma
+import bz2
+import zlib
+import gzip
+import io
 
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -42,18 +47,88 @@ class DukascopyDownloader:
             if r.status_code != 200:
                 print(f"No hour data: {url} -> {r.status_code}")
                 return pd.DataFrame()
-
             content = r.content
-            # Dukascopy hourly files are in bi5 compressed binary of ticks; parsing requires specialized logic.
-            # For now, attempt to decode as CSV-like text fallback (some mirrors provide CSV).
-            try:
-                text = content.decode("utf-8")
-                df = pd.read_csv(pd.io.common.StringIO(text))
+            # Dukascopy hourly files are usually .bi5 compressed binary of ticks; parsing requires specialized logic.
+            # Try: plain text CSV, then multiple decompressors (lzma, zlib, bz2, gzip) and CSV parse.
+            attempts = []
+
+            def try_parse_bytes(b: bytes):
+                try:
+                    txt = b.decode("utf-8")
+                    df = pd.read_csv(pd.io.common.StringIO(txt))
+                    return df
+                except Exception:
+                    return None
+
+            # 1) try raw bytes as UTF-8 CSV
+            df = try_parse_bytes(content)
+            if df is not None:
+                print(f"Parsed hour as CSV (raw) {year}-{month:02d}-{day:02d} {hour:02d}")
                 return df
-            except Exception:
-                # Unable to decode — skip
-                print(f"Downloaded binary hour file (cannot parse) {year}-{month:02d}-{day:02d} {hour:02d}")
-                return pd.DataFrame()
+
+            # 2) try lzma
+            for name, func in (
+                ("lzma", lambda b: lzma.decompress(b)),
+                ("zlib", lambda b: zlib.decompress(b)),
+                ("bz2", lambda b: bz2.decompress(b)),
+                ("gzip", lambda b: gzip.decompress(b)),
+            ):
+                try:
+                    out = func(content)
+                    # if decompressed bytes are text CSV, parse
+                    df = try_parse_bytes(out)
+                    if df is not None:
+                        print(f"Parsed hour as CSV after {name} decompress {year}-{month:02d}-{day:02d} {hour:02d}")
+                        return df
+
+                    # If decompressed bytes appear to be binary ticks (length divisible by 20),
+                    # parse 20-byte records: >qiii (big-endian int64, int32, int32, int32)
+                    if len(out) % 20 == 0 and len(out) >= 20:
+                        import struct
+                        records = []
+                        for i in range(0, len(out), 20):
+                            chunk = out[i : i + 20]
+                            try:
+                                ts_ms, a, b, vol = struct.unpack('>qiii', chunk)
+                            except struct.error:
+                                # fall back to unsigned ints if signed fails
+                                ts_ms = struct.unpack('>q', chunk[:8])[0]
+                                a = int.from_bytes(chunk[8:12], 'big', signed=False)
+                                b = int.from_bytes(chunk[12:16], 'big', signed=False)
+                                vol = int.from_bytes(chunk[16:20], 'big', signed=False)
+                            # compute mid price
+                            price = (a + b) / 2.0 / 100000.0
+                            ts = pd.to_datetime(ts_ms, unit='ms', utc=True)
+                            records.append((ts, price, vol))
+
+                        if records:
+                            tdf = pd.DataFrame(records, columns=['timestamp', 'price', 'volume'])
+                            # aggregate to 1m OHLCV
+                            tdf = tdf.set_index('timestamp')
+                            ohlc = tdf['price'].resample('1T').agg(['first','max','min','last'])
+                            volsum = tdf['volume'].resample('1T').sum()
+                            ohlc = ohlc.rename(columns={'first':'open','max':'high','min':'low','last':'close'})
+                            ohlc['volume'] = volsum
+                            ohlc = ohlc.dropna(subset=['open'])
+                            ohlc = ohlc.reset_index()
+                            print(f"Parsed hour as binary ticks->{len(ohlc)} bars after {name} decompress {year}-{month:02d}-{day:02d} {hour:02d}")
+                            return ohlc
+
+                    attempts.append((name, "decompressed but not CSV or binary-ticks"))
+                except Exception as e:
+                    attempts.append((name, f"decompress failed: {e}"))
+
+            # If we reach here, we could not parse. Save raw content for inspection.
+            debug_dir = self.output_dir / "dukascopy_debug"
+            debug_dir.mkdir(parents=True, exist_ok=True)
+            out_path = debug_dir / f"{year:04d}-{month:02d}-{day:02d}-{hour:02d}.bin"
+            try:
+                with open(out_path, "wb") as f:
+                    f.write(content)
+                print(f"Saved unparseable hour to {out_path}; attempts: {attempts}")
+            except Exception as e:
+                print(f"Failed to save debug file {out_path}: {e}; attempts: {attempts}")
+            return pd.DataFrame()
 
         except Exception as e:
             print(f"Error downloading {url}: {e}")
