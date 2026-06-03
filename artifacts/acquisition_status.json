@@ -1,8 +1,36 @@
 {
   "results": [
-    {"market": "BTCUSDT", "timeframe": "30m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
-    {"market": "BTCUSDT", "timeframe": "15m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
-    {"market": "EURUSD", "timeframe": "30m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"},
-    {"market": "EURUSD", "timeframe": "15m", "rows": 0, "start_date": null, "end_date": null, "status": "pending"}
+    {
+      "market": "BTCUSDT",
+      "timeframe": "30m",
+      "rows": 0,
+      "start_date": "2024-06-02T22:39:57.662722+00:00",
+      "end_date": "2026-06-02T22:39:57.662722+00:00",
+      "status": "error: unconverted data remains: T22:39:57.662722+00:00"
+    },
+    {
+      "market": "BTCUSDT",
+      "timeframe": "15m",
+      "rows": 0,
+      "start_date": "2024-06-02T22:39:57.662722+00:00",
+      "end_date": "2026-06-02T22:39:57.662722+00:00",
+      "status": "error: unconverted data remains: T22:39:57.662722+00:00"
+    },
+    {
+      "market": "EURUSD",
+      "timeframe": "30m",
+      "rows": 0,
+      "start_date": "2024-06-02T22:39:57.662722+00:00",
+      "end_date": "2026-06-02T22:39:57.662722+00:00",
+      "status": "error: \"['timestamp'] not in index\""
+    },
+    {
+      "market": "EURUSD",
+      "timeframe": "15m",
+      "rows": 0,
+      "start_date": "2024-06-02T22:39:57.662722+00:00",
+      "end_date": "2026-06-02T22:39:57.662722+00:00",
+      "status": "error: \"['timestamp'] not in index\""
+    }
   ]
 }

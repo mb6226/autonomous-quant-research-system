@@ -16,7 +16,9 @@ MANIFEST = Path("data/manifests/EURUSD_1m.json")
 def normalize_column_names(df: pd.DataFrame) -> pd.DataFrame:
     rename = {}
     for c in df.columns:
-        key = c.lower().strip()
+        # Some Excel files have non-string column headers (datetime, NaN); coerce to str
+        cname = str(c) if not isinstance(c, str) else c
+        key = cname.lower().strip()
         if "date" in key and "time" not in key:
             rename[c] = "date"
         elif "time" in key and "date" not in key:
@@ -53,11 +55,17 @@ def main():
     df = pd.read_excel(IN_FILE)
     df = normalize_column_names(df)
 
-    # Ensure required columns exist
-    for col in ("date", "open", "high", "low", "close", "volume"):
-        if col not in df.columns and col != "date":
-            # allow missing 'time' but not ohlcv
-            raise SystemExit(f"Required column missing after normalization: {col}")
+    # If normalization didn't find OHLCV (common when file has no header),
+    # re-read treating the sheet as headerless and assign expected columns.
+    expected = ("date", "open", "high", "low", "close", "volume")
+    if not all(col in df.columns for col in ("open", "high", "low", "close")):
+        df = pd.read_excel(IN_FILE, header=None)
+        if df.shape[1] < 5:
+            raise SystemExit("Excel file has unexpected number of columns for M1 data")
+        # take first 6 columns as date,open,high,low,close,volume
+        cols = list(df.columns[:6])
+        df = df.iloc[:, :6]
+        df.columns = list(expected)
 
     ts = build_timestamp(df)
     df["timestamp"] = ts
