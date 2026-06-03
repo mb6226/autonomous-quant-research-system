@@ -109,7 +109,9 @@ def main():
             print(df["timestamp"].max().strftime("%Y-%m-%dT%H:%M:%SZ"))
         return
 
-    start_iter = datetime(resume_dt.year, resume_dt.month, 1)
+    # start from either resume point or earliest (2024-01-01), whichever is later
+    start_base = resume_dt if resume_dt > earliest else earliest
+    start_iter = datetime(start_base.year, start_base.month, 1)
 
     for year, month in month_iter(start_iter, today):
         print(f"Processing month {year}-{month:02d}")
