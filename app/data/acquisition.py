@@ -6,6 +6,7 @@ import pandas as pd
 from app.data.jobs.download_job import DownloadJob
 from app.data.providers.binance.provider import BinanceProvider
 from app.data.providers.yahoo.provider import YahooProvider
+from app.data.providers.dukascopy.downloader import DukascopyDownloader
 
 MANIFEST_DIR = Path.cwd() / "data" / "manifests"
 RAW_DIR = Path.cwd() / "data" / "raw"
@@ -95,6 +96,16 @@ def run_acquisition(tasks):
             if provider_name == "binance":
                 prov = BinanceProvider()
                 df = prov.download(job)
+            elif provider_name == "dukascopy":
+                # Use Dukascopy downloader for intraday forex history
+                d = DukascopyDownloader(symbol=job.symbol)
+                # Determine years to download from start_date to end_date
+                s = datetime.fromisoformat(start_date)
+                e = datetime.fromisoformat(end_date)
+                d.download_range(s.year, e.year)
+                # After download, load parquet if exists
+                out = parquet_path(job.symbol, job.timeframe)
+                df = load_existing(out)
             else:
                 prov = YahooProvider()
                 # yfinance prefers date strings like YYYY-MM-DD (no fractional seconds)
