@@ -5,7 +5,7 @@ This script appends month-by-month, supports resume, deduplicates, updates manif
 and prints rows/start_date/end_date after merging.
 """
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import time
 import pandas as pd
@@ -80,7 +80,7 @@ def main():
     duk = DukascopyDownloader(symbol="EURUSD")
 
     # determine resume start
-    earliest = datetime(2024, 1, 1)
+    earliest = datetime(2024, 1, 1, tzinfo=timezone.utc)
     if OUT_PARQUET.exists():
         try:
             existing = pd.read_parquet(OUT_PARQUET)
