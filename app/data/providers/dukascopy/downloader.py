@@ -105,8 +105,10 @@ class DukascopyDownloader:
                             tdf = pd.DataFrame(records, columns=['timestamp', 'price', 'volume'])
                             # aggregate to 1m OHLCV
                             tdf = tdf.set_index('timestamp')
-                            ohlc = tdf['price'].resample('1T').agg(['first','max','min','last'])
+                            # use explicit minute alias to be compatible across pandas versions
+                            ohlc = tdf['price'].resample('1min').agg(['first','max','min','last'])
                             volsum = tdf['volume'].resample('1T').sum()
+                            volsum = tdf['volume'].resample('1min').sum()
                             ohlc = ohlc.rename(columns={'first':'open','max':'high','min':'low','last':'close'})
                             ohlc['volume'] = volsum
                             ohlc = ohlc.dropna(subset=['open'])
