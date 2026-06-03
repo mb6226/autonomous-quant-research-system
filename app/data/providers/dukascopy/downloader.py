@@ -11,7 +11,7 @@ import gzip
 import io
 
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -82,38 +82,40 @@ class DukascopyDownloader:
                         return df
 
                     # If decompressed bytes appear to be binary ticks (length divisible by 20),
-                    # parse 20-byte records: >qiii (big-endian int64, int32, int32, int32)
+                    # parse 20-byte records: >IIIff
+                    # layout: uint32 ms_from_hour, uint32 ask_price, uint32 bid_price, float ask_vol, float bid_vol
                     if len(out) % 20 == 0 and len(out) >= 20:
                         import struct
                         records = []
+                        hour_start = datetime(year, month, day, hour, tzinfo=timezone.utc)
+                        scale = 100000.0
                         for i in range(0, len(out), 20):
                             chunk = out[i : i + 20]
                             try:
-                                ts_ms, a, b, vol = struct.unpack('>qiii', chunk)
+                                ms_from_hour, ask_u, bid_u, ask_vol, bid_vol = struct.unpack('>IIIff', chunk)
                             except struct.error:
-                                # fall back to unsigned ints if signed fails
-                                ts_ms = struct.unpack('>q', chunk[:8])[0]
-                                a = int.from_bytes(chunk[8:12], 'big', signed=False)
-                                b = int.from_bytes(chunk[12:16], 'big', signed=False)
-                                vol = int.from_bytes(chunk[16:20], 'big', signed=False)
-                            # compute mid price
-                            price = (a + b) / 2.0 / 100000.0
-                            ts = pd.to_datetime(ts_ms, unit='ms', utc=True)
-                            records.append((ts, price, vol))
+                                # if unpack fails, skip this record
+                                continue
+
+                            ms_offset = int(ms_from_hour)
+                            ask = ask_u / scale
+                            bid = bid_u / scale
+                            ts = pd.to_datetime(hour_start) + pd.to_timedelta(ms_offset, unit='ms')
+                            records.append((ts, bid, ask, bid_vol, ask_vol))
 
                         if records:
-                            tdf = pd.DataFrame(records, columns=['timestamp', 'price', 'volume'])
-                            # aggregate to 1m OHLCV
+                            tdf = pd.DataFrame(records, columns=['timestamp', 'bid', 'ask', 'bid_vol', 'ask_vol'])
+                            tdf['price'] = (tdf['bid'] + tdf['ask']) / 2.0
+                            tdf['volume'] = tdf['bid_vol'].fillna(0) + tdf['ask_vol'].fillna(0)
                             tdf = tdf.set_index('timestamp')
                             # use explicit minute alias to be compatible across pandas versions
                             ohlc = tdf['price'].resample('1min').agg(['first','max','min','last'])
-                            volsum = tdf['volume'].resample('1T').sum()
                             volsum = tdf['volume'].resample('1min').sum()
                             ohlc = ohlc.rename(columns={'first':'open','max':'high','min':'low','last':'close'})
                             ohlc['volume'] = volsum
                             ohlc = ohlc.dropna(subset=['open'])
                             ohlc = ohlc.reset_index()
-                            print(f"Parsed hour as binary ticks->{len(ohlc)} bars after {name} decompress {year}-{month:02d}-{day:02d} {hour:02d}")
+                            print(f"Parsed hour as Dukascopy 20-byte ticks -> {len(ohlc)} bars after {name} decompress {year}-{month:02d}-{day:02d} {hour:02d}")
                             return ohlc
 
                     attempts.append((name, "decompressed but not CSV or binary-ticks"))
