@@ -70,11 +70,12 @@ def decompress_content(content):
 SCALE = 100000.0
 FMT = '>IIIff'
 
-def load_existing_timestamps_for_month(month_start, month_end):
+def load_existing_timestamps_for_month(month_start, month_end, existing_source=None):
     existing_ts = set()
-    if OUT_PARQUET.exists():
+    src = existing_source if existing_source is not None else OUT_PARQUET
+    if src.exists():
         try:
-            existing_df = pd.read_parquet(OUT_PARQUET, columns=['timestamp'])
+            existing_df = pd.read_parquet(src, columns=['timestamp'])
             existing_df['timestamp'] = pd.to_datetime(existing_df['timestamp'], utc=True)
             mask = (existing_df['timestamp'].dt.date >= month_start) & (existing_df['timestamp'].dt.date <= month_end)
             existing_ts = set(existing_df.loc[mask, 'timestamp'].astype(str).tolist())
@@ -87,6 +88,16 @@ def write_progress(progress, checkpoints, last_validation):
     payload = {'progress': progress, 'checkpoints': checkpoints, 'last_validation': last_validation}
     with open(ART_PROGRESS, 'w') as f:
         json.dump(payload, f, indent=2)
+
+def load_progress():
+    if not ART_PROGRESS.exists():
+        return [], {}, None
+    try:
+        with open(ART_PROGRESS, 'r') as f:
+            payload = json.load(f)
+        return payload.get('progress', []), payload.get('checkpoints', {}), payload.get('last_validation')
+    except Exception:
+        return [], {}, None
 
 def run():
     duk = DukascopyDownloader(symbol='EURUSD')
@@ -113,14 +124,26 @@ def run():
     pid = os.getpid()
     print('PID', pid)
 
-    progress = []
-    checkpoints = {}
-    last_validation = None
+    # load prior progress to enable resume
+    progress, checkpoints, last_validation = load_progress()
+    completed_months = set()
+    for e in progress:
+        try:
+            if int(e.get('minute_rows_generated', 0)) > 0:
+                completed_months.add(e.get('month'))
+        except Exception:
+            continue
     first_month_reported = None
     first_successful_hour = None
 
+    CHUNK_DIR = Path('data/raw/EURUSD')
+    CHUNK_DIR.mkdir(parents=True, exist_ok=True)
+
     for (y, m, month_start, month_end) in month_iter(START_DATE, END_DATE):
         month_label = f"{y:04d}-{m:02d}"
+        if month_label in completed_months:
+            print('SKIP month (already completed in manifest):', month_label)
+            continue
         if first_month_reported is None:
             first_month_reported = month_label
         hours_downloaded = 0
@@ -129,7 +152,9 @@ def run():
         minute_rows_generated = 0
         monthly_minutes = []
 
-        existing_ts = load_existing_timestamps_for_month(month_start, month_end)
+        # prefer checking the single main parquet for duplicates if present
+        existing_source = main_parquet if main_parquet.exists() else OUT_PARQUET
+        existing_ts = load_existing_timestamps_for_month(month_start, month_end, existing_source=existing_source)
 
         day = month_start
         while day <= month_end:
@@ -185,30 +210,48 @@ def run():
                 hours_downloaded += 1
             day = day + timedelta(days=1)
 
-        # write month combine
+        # write month chunk file atomically (write to temp then replace)
         parquet_size_mb = OUT_PARQUET.stat().st_size / 1024 / 1024 if OUT_PARQUET.exists() else 0.0
+        chunk_file = CHUNK_DIR / f"1m_gapfill_part_{month_label}.parquet"
         if monthly_minutes:
             combined = pd.concat(monthly_minutes, ignore_index=True)
             try:
-                if OUT_PARQUET.exists():
-                    old = pd.read_parquet(OUT_PARQUET)
-                    newall = pd.concat([old, combined], ignore_index=True)
+                # ensure timestamps and sort
+                combined['timestamp'] = pd.to_datetime(combined['timestamp'], utc=True)
+                combined = combined.sort_values('timestamp').reset_index(drop=True)
+                # drop any rows that already exist in main/source
+                combined['ts_str'] = combined['timestamp'].astype(str)
+                new_only = combined[~combined['ts_str'].isin(existing_ts)].drop(columns=['ts_str'])
+                before = len(combined)
+                after = len(new_only)
+                duplicates_removed = before - after
+                if after > 0:
+                    tmp_name = f"{chunk_file.stem}.parquet.tmp.{month_label}"
+                    tmp_path = chunk_file.parent / tmp_name
+                    new_only.to_parquet(tmp_path, index=False)
+                    try:
+                        tmp_path.replace(chunk_file)
+                    except Exception:
+                        tmp_path.rename(chunk_file)
+                    parquet_size_mb = chunk_file.stat().st_size / 1024 / 1024
                 else:
-                    newall = combined
-                newall['timestamp'] = pd.to_datetime(newall['timestamp'], utc=True)
-                newall = newall.sort_values('timestamp').reset_index(drop=True)
-                newall = newall.drop_duplicates(subset=['timestamp'], keep='first')
-                newall.to_parquet(OUT_PARQUET, index=False)
-                parquet_size_mb = OUT_PARQUET.stat().st_size / 1024 / 1024
-                duplicates_removed = 0
+                    # nothing new for this month
+                    parquet_size_mb = chunk_file.stat().st_size / 1024 / 1024 if chunk_file.exists() else 0.0
             except Exception as e:
-                print('Error writing parquet for', month_label, e)
+                print('Error writing chunk parquet for', month_label, e)
                 duplicates_removed = 0
+        else:
+            duplicates_removed = 0
         else:
             duplicates_removed = 0
 
         try:
-            parquet_rows_total = len(pd.read_parquet(OUT_PARQUET)) if OUT_PARQUET.exists() else 0
+            # compute total rows across recorded chunk files in checkpoints
+            parquet_rows_total = 0
+            for c in checkpoints.values():
+                p = Path(c.get('file')) if c.get('file') else None
+                if p and p.exists():
+                    parquet_rows_total += len(pd.read_parquet(p))
         except Exception:
             parquet_rows_total = 0
 
@@ -224,6 +267,15 @@ def run():
             'parquet_size_mb': round(parquet_size_mb,3),
             'parquet_rows_total': parquet_rows_total
         }
+        # update checkpoints for this month
+        now = datetime.now(timezone.utc).isoformat()
+        checkpoints[month_label] = {
+            'file': str(chunk_file) if chunk_file.exists() else None,
+            'rows': after if 'after' in locals() else 0,
+            'duplicates_removed': duplicates_removed,
+            'status': 'done' if (chunk_file.exists() and (after if 'after' in locals() else 0) >= 0) else 'error',
+            'completed_at': now
+        }
         progress.append(entry)
         write_progress(progress, checkpoints, last_validation)
 
@@ -235,14 +287,21 @@ def run():
         print('parquet_rows_total', parquet_rows_total)
         sys.stdout.flush()
 
-        # simple validation after each month
+        # simple validation after each month: check chunk file integrity
         try:
-            dfv = pd.read_parquet(OUT_PARQUET)
-            dfv['timestamp'] = pd.to_datetime(dfv['timestamp'], utc=True)
-            row_count = len(dfv)
-            dup_count = dfv['timestamp'].duplicated().sum()
-            if row_count == 0 or dup_count > 0:
-                print('Validation failed — stopping gap-fill')
+            if chunk_file.exists():
+                dfv = pd.read_parquet(chunk_file)
+                dfv['timestamp'] = pd.to_datetime(dfv['timestamp'], utc=True)
+                row_count = len(dfv)
+                dup_count = dfv['timestamp'].duplicated().sum()
+                if row_count == 0:
+                    print('Validation failed — chunk empty — stopping gap-fill')
+                    sys.exit(2)
+                if dup_count > 0:
+                    print('Validation failed — duplicates in chunk — stopping gap-fill')
+                    sys.exit(2)
+            else:
+                print('Validation failed — chunk file missing — stopping gap-fill')
                 sys.exit(2)
         except Exception as e:
             print('Validation error — stopping gap-fill', e)
@@ -250,10 +309,18 @@ def run():
 
     # final summary
     try:
-        final_df = pd.read_parquet(OUT_PARQUET)
-        final_df['timestamp'] = pd.to_datetime(final_df['timestamp'], utc=True)
-        rows = len(final_df)
-        end_ts = final_df['timestamp'].max().isoformat() if rows>0 else None
+        # compute final rows as sum of chunk files recorded in checkpoints
+        rows = 0
+        end_ts = None
+        for c in checkpoints.values():
+            p = Path(c.get('file')) if c.get('file') else None
+            if p and p.exists():
+                df = pd.read_parquet(p)
+                df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
+                rows += len(df)
+                cur_max = df['timestamp'].max()
+                if end_ts is None or (cur_max and cur_max.isoformat() > end_ts):
+                    end_ts = cur_max.isoformat() if cur_max is not None else end_ts
     except Exception:
         rows = 0; end_ts = None
 
@@ -270,12 +337,9 @@ def run():
     print('\nFINAL SUMMARY:')
     print(summary)
 
-    # after completion, run merge script as requested
-    try:
-        print('Running merge_gapfill_to_main.py')
-        os.system('.venv/bin/python scripts/merge_gapfill_to_main.py')
-    except Exception as e:
-        print('Failed to run merge script:', e)
+    # Do not auto-merge into the single main parquet. Manual/atomic merge is safer.
+    print('Gapfill completed. Chunk files are stored under', str(CHUNK_DIR))
+    print('To merge chunks into data/raw/EURUSD/1m.parquet run scripts/merge_gapfill_to_main.py when ready.')
 
 if __name__ == '__main__':
     run()
