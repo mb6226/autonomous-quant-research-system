@@ -1,0 +1,1570 @@
+{
+  "source_rows": 5911143,
+  "partition_rows": 5911143,
+  "difference": 0,
+  "months_created": 195,
+  "first_month": "2010-01",
+  "last_month": "2026-05",
+  "files": [
+    {
+      "month": "2010-01",
+      "rows": 27612,
+      "start_timestamp": "2010-01-03T17:00:00+00:00",
+      "end_timestamp": "2010-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-01.parquet",
+      "size_bytes": 381466
+    },
+    {
+      "month": "2010-02",
+      "rows": 27486,
+      "start_timestamp": "2010-02-01T00:00:00+00:00",
+      "end_timestamp": "2010-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-02.parquet",
+      "size_bytes": 376715
+    },
+    {
+      "month": "2010-03",
+      "rows": 30804,
+      "start_timestamp": "2010-03-01T00:01:00+00:00",
+      "end_timestamp": "2010-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-03.parquet",
+      "size_bytes": 408945
+    },
+    {
+      "month": "2010-04",
+      "rows": 28906,
+      "start_timestamp": "2010-04-01T00:00:00+00:00",
+      "end_timestamp": "2010-04-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-04.parquet",
+      "size_bytes": 385724
+    },
+    {
+      "month": "2010-05",
+      "rows": 29741,
+      "start_timestamp": "2010-05-02T17:00:00+00:00",
+      "end_timestamp": "2010-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-05.parquet",
+      "size_bytes": 437348
+    },
+    {
+      "month": "2010-06",
+      "rows": 30297,
+      "start_timestamp": "2010-06-01T00:00:00+00:00",
+      "end_timestamp": "2010-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-06.parquet",
+      "size_bytes": 414331
+    },
+    {
+      "month": "2010-07",
+      "rows": 29320,
+      "start_timestamp": "2010-07-01T00:00:00+00:00",
+      "end_timestamp": "2010-07-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-07.parquet",
+      "size_bytes": 407645
+    },
+    {
+      "month": "2010-08",
+      "rows": 29604,
+      "start_timestamp": "2010-08-01T17:00:00+00:00",
+      "end_timestamp": "2010-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-08.parquet",
+      "size_bytes": 406674
+    },
+    {
+      "month": "2010-09",
+      "rows": 29104,
+      "start_timestamp": "2010-09-01T00:00:00+00:00",
+      "end_timestamp": "2010-09-30T23:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-09.parquet",
+      "size_bytes": 408231
+    },
+    {
+      "month": "2010-10",
+      "rows": 28541,
+      "start_timestamp": "2010-10-01T00:00:00+00:00",
+      "end_timestamp": "2010-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-10.parquet",
+      "size_bytes": 374466
+    },
+    {
+      "month": "2010-11",
+      "rows": 30675,
+      "start_timestamp": "2010-11-01T00:00:00+00:00",
+      "end_timestamp": "2010-11-30T23:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-11.parquet",
+      "size_bytes": 443515
+    },
+    {
+      "month": "2010-12",
+      "rows": 30230,
+      "start_timestamp": "2010-12-01T00:00:00+00:00",
+      "end_timestamp": "2010-12-31T14:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2010-12.parquet",
+      "size_bytes": 394723
+    },
+    {
+      "month": "2011-01",
+      "rows": 29249,
+      "start_timestamp": "2011-01-02T17:00:00+00:00",
+      "end_timestamp": "2011-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-01.parquet",
+      "size_bytes": 407285
+    },
+    {
+      "month": "2011-02",
+      "rows": 26894,
+      "start_timestamp": "2011-02-01T00:00:00+00:00",
+      "end_timestamp": "2011-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-02.parquet",
+      "size_bytes": 352177
+    },
+    {
+      "month": "2011-03",
+      "rows": 30483,
+      "start_timestamp": "2011-03-01T00:00:00+00:00",
+      "end_timestamp": "2011-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-03.parquet",
+      "size_bytes": 399271
+    },
+    {
+      "month": "2011-04",
+      "rows": 27364,
+      "start_timestamp": "2011-04-01T00:00:00+00:00",
+      "end_timestamp": "2011-04-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-04.parquet",
+      "size_bytes": 381250
+    },
+    {
+      "month": "2011-05",
+      "rows": 30988,
+      "start_timestamp": "2011-05-01T17:00:00+00:00",
+      "end_timestamp": "2011-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-05.parquet",
+      "size_bytes": 430050
+    },
+    {
+      "month": "2011-06",
+      "rows": 30686,
+      "start_timestamp": "2011-06-01T00:00:00+00:00",
+      "end_timestamp": "2011-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-06.parquet",
+      "size_bytes": 420128
+    },
+    {
+      "month": "2011-07",
+      "rows": 29112,
+      "start_timestamp": "2011-07-01T00:00:00+00:00",
+      "end_timestamp": "2011-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-07.parquet",
+      "size_bytes": 402313
+    },
+    {
+      "month": "2011-08",
+      "rows": 32057,
+      "start_timestamp": "2011-08-01T00:00:00+00:00",
+      "end_timestamp": "2011-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-08.parquet",
+      "size_bytes": 417579
+    },
+    {
+      "month": "2011-09",
+      "rows": 30426,
+      "start_timestamp": "2011-09-01T00:00:00+00:00",
+      "end_timestamp": "2011-09-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-09.parquet",
+      "size_bytes": 426319
+    },
+    {
+      "month": "2011-10",
+      "rows": 29862,
+      "start_timestamp": "2011-10-02T17:00:00+00:00",
+      "end_timestamp": "2011-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-10.parquet",
+      "size_bytes": 425362
+    },
+    {
+      "month": "2011-11",
+      "rows": 30773,
+      "start_timestamp": "2011-11-01T00:00:00+00:00",
+      "end_timestamp": "2011-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-11.parquet",
+      "size_bytes": 411878
+    },
+    {
+      "month": "2011-12",
+      "rows": 30475,
+      "start_timestamp": "2011-12-01T00:00:00+00:00",
+      "end_timestamp": "2011-12-30T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2011-12.parquet",
+      "size_bytes": 585114
+    },
+    {
+      "month": "2012-01",
+      "rows": 31499,
+      "start_timestamp": "2012-01-02T02:00:00+00:00",
+      "end_timestamp": "2012-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-01.parquet",
+      "size_bytes": 630234
+    },
+    {
+      "month": "2012-02",
+      "rows": 30223,
+      "start_timestamp": "2012-02-01T00:00:00+00:00",
+      "end_timestamp": "2012-02-29T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-02.parquet",
+      "size_bytes": 578296
+    },
+    {
+      "month": "2012-03",
+      "rows": 31214,
+      "start_timestamp": "2012-03-01T00:00:00+00:00",
+      "end_timestamp": "2012-03-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-03.parquet",
+      "size_bytes": 552286
+    },
+    {
+      "month": "2012-04",
+      "rows": 30605,
+      "start_timestamp": "2012-04-01T17:00:00+00:00",
+      "end_timestamp": "2012-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-04.parquet",
+      "size_bytes": 532300
+    },
+    {
+      "month": "2012-05",
+      "rows": 33080,
+      "start_timestamp": "2012-05-01T00:00:00+00:00",
+      "end_timestamp": "2012-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-05.parquet",
+      "size_bytes": 715156
+    },
+    {
+      "month": "2012-06",
+      "rows": 29794,
+      "start_timestamp": "2012-06-01T00:00:00+00:00",
+      "end_timestamp": "2012-06-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-06.parquet",
+      "size_bytes": 539733
+    },
+    {
+      "month": "2012-07",
+      "rows": 32027,
+      "start_timestamp": "2012-07-01T17:00:00+00:00",
+      "end_timestamp": "2012-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-07.parquet",
+      "size_bytes": 596953
+    },
+    {
+      "month": "2012-08",
+      "rows": 32594,
+      "start_timestamp": "2012-08-01T00:00:00+00:00",
+      "end_timestamp": "2012-08-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-08.parquet",
+      "size_bytes": 596489
+    },
+    {
+      "month": "2012-09",
+      "rows": 29173,
+      "start_timestamp": "2012-09-02T17:00:00+00:00",
+      "end_timestamp": "2012-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-09.parquet",
+      "size_bytes": 589317
+    },
+    {
+      "month": "2012-10",
+      "rows": 32967,
+      "start_timestamp": "2012-10-01T00:00:00+00:00",
+      "end_timestamp": "2012-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-10.parquet",
+      "size_bytes": 560023
+    },
+    {
+      "month": "2012-11",
+      "rows": 31171,
+      "start_timestamp": "2012-11-01T00:00:00+00:00",
+      "end_timestamp": "2012-11-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-11.parquet",
+      "size_bytes": 547548
+    },
+    {
+      "month": "2012-12",
+      "rows": 27814,
+      "start_timestamp": "2012-12-02T17:00:00+00:00",
+      "end_timestamp": "2012-12-31T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2012-12.parquet",
+      "size_bytes": 506543
+    },
+    {
+      "month": "2013-01",
+      "rows": 32051,
+      "start_timestamp": "2013-01-01T17:00:00+00:00",
+      "end_timestamp": "2013-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-01.parquet",
+      "size_bytes": 615434
+    },
+    {
+      "month": "2013-02",
+      "rows": 28743,
+      "start_timestamp": "2013-02-01T00:00:00+00:00",
+      "end_timestamp": "2013-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-02.parquet",
+      "size_bytes": 585253
+    },
+    {
+      "month": "2013-03",
+      "rows": 30152,
+      "start_timestamp": "2013-03-01T00:00:00+00:00",
+      "end_timestamp": "2013-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-03.parquet",
+      "size_bytes": 535508
+    },
+    {
+      "month": "2013-04",
+      "rows": 31513,
+      "start_timestamp": "2013-04-01T00:00:00+00:00",
+      "end_timestamp": "2013-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-04.parquet",
+      "size_bytes": 552162
+    },
+    {
+      "month": "2013-05",
+      "rows": 32532,
+      "start_timestamp": "2013-05-01T00:00:00+00:00",
+      "end_timestamp": "2013-05-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-05.parquet",
+      "size_bytes": 583058
+    },
+    {
+      "month": "2013-06",
+      "rows": 29145,
+      "start_timestamp": "2013-06-02T17:00:00+00:00",
+      "end_timestamp": "2013-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-06.parquet",
+      "size_bytes": 538935
+    },
+    {
+      "month": "2013-07",
+      "rows": 33023,
+      "start_timestamp": "2013-07-01T00:00:00+00:00",
+      "end_timestamp": "2013-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-07.parquet",
+      "size_bytes": 631387
+    },
+    {
+      "month": "2013-08",
+      "rows": 31140,
+      "start_timestamp": "2013-08-01T00:00:00+00:00",
+      "end_timestamp": "2013-08-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-08.parquet",
+      "size_bytes": 513320
+    },
+    {
+      "month": "2013-09",
+      "rows": 30497,
+      "start_timestamp": "2013-09-01T17:00:00+00:00",
+      "end_timestamp": "2013-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-09.parquet",
+      "size_bytes": 536416
+    },
+    {
+      "month": "2013-10",
+      "rows": 32952,
+      "start_timestamp": "2013-10-01T00:00:00+00:00",
+      "end_timestamp": "2013-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-10.parquet",
+      "size_bytes": 557056
+    },
+    {
+      "month": "2013-11",
+      "rows": 29689,
+      "start_timestamp": "2013-11-01T00:00:00+00:00",
+      "end_timestamp": "2013-11-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-11.parquet",
+      "size_bytes": 505495
+    },
+    {
+      "month": "2013-12",
+      "rows": 29174,
+      "start_timestamp": "2013-12-01T17:00:00+00:00",
+      "end_timestamp": "2013-12-31T15:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2013-12.parquet",
+      "size_bytes": 500782
+    },
+    {
+      "month": "2014-01",
+      "rows": 31556,
+      "start_timestamp": "2014-01-01T17:00:00+00:00",
+      "end_timestamp": "2014-01-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-01.parquet",
+      "size_bytes": 523228
+    },
+    {
+      "month": "2014-02",
+      "rows": 28622,
+      "start_timestamp": "2014-02-02T17:00:00+00:00",
+      "end_timestamp": "2014-02-28T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-02.parquet",
+      "size_bytes": 494677
+    },
+    {
+      "month": "2014-03",
+      "rows": 30337,
+      "start_timestamp": "2014-03-02T17:00:00+00:00",
+      "end_timestamp": "2014-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-03.parquet",
+      "size_bytes": 505511
+    },
+    {
+      "month": "2014-04",
+      "rows": 30890,
+      "start_timestamp": "2014-04-01T00:00:00+00:00",
+      "end_timestamp": "2014-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-04.parquet",
+      "size_bytes": 482356
+    },
+    {
+      "month": "2014-05",
+      "rows": 30595,
+      "start_timestamp": "2014-05-01T00:00:00+00:00",
+      "end_timestamp": "2014-05-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-05.parquet",
+      "size_bytes": 524580
+    },
+    {
+      "month": "2014-06",
+      "rows": 28589,
+      "start_timestamp": "2014-06-02T15:01:00+00:00",
+      "end_timestamp": "2014-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-06.parquet",
+      "size_bytes": 440108
+    },
+    {
+      "month": "2014-07",
+      "rows": 32253,
+      "start_timestamp": "2014-07-01T00:00:00+00:00",
+      "end_timestamp": "2014-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-07.parquet",
+      "size_bytes": 535122
+    },
+    {
+      "month": "2014-08",
+      "rows": 29544,
+      "start_timestamp": "2014-08-01T00:01:00+00:00",
+      "end_timestamp": "2014-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-08.parquet",
+      "size_bytes": 492034
+    },
+    {
+      "month": "2014-09",
+      "rows": 31322,
+      "start_timestamp": "2014-09-01T00:00:00+00:00",
+      "end_timestamp": "2014-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-09.parquet",
+      "size_bytes": 548931
+    },
+    {
+      "month": "2014-10",
+      "rows": 32604,
+      "start_timestamp": "2014-10-01T00:00:00+00:00",
+      "end_timestamp": "2014-10-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-10.parquet",
+      "size_bytes": 563936
+    },
+    {
+      "month": "2014-11",
+      "rows": 29198,
+      "start_timestamp": "2014-11-02T17:00:00+00:00",
+      "end_timestamp": "2014-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-11.parquet",
+      "size_bytes": 464289
+    },
+    {
+      "month": "2014-12",
+      "rows": 30967,
+      "start_timestamp": "2014-12-01T00:00:00+00:00",
+      "end_timestamp": "2014-12-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2014-12.parquet",
+      "size_bytes": 566143
+    },
+    {
+      "month": "2015-01",
+      "rows": 30259,
+      "start_timestamp": "2015-01-01T13:00:00+00:00",
+      "end_timestamp": "2015-01-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-01.parquet",
+      "size_bytes": 647753
+    },
+    {
+      "month": "2015-02",
+      "rows": 28752,
+      "start_timestamp": "2015-02-01T17:00:00+00:00",
+      "end_timestamp": "2015-02-27T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-02.parquet",
+      "size_bytes": 491455
+    },
+    {
+      "month": "2015-03",
+      "rows": 32073,
+      "start_timestamp": "2015-03-01T17:00:00+00:00",
+      "end_timestamp": "2015-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-03.parquet",
+      "size_bytes": 673551
+    },
+    {
+      "month": "2015-04",
+      "rows": 31639,
+      "start_timestamp": "2015-04-01T00:00:00+00:00",
+      "end_timestamp": "2015-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-04.parquet",
+      "size_bytes": 640678
+    },
+    {
+      "month": "2015-05",
+      "rows": 30189,
+      "start_timestamp": "2015-05-01T00:00:00+00:00",
+      "end_timestamp": "2015-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-05.parquet",
+      "size_bytes": 599398
+    },
+    {
+      "month": "2015-06",
+      "rows": 31619,
+      "start_timestamp": "2015-06-01T00:00:00+00:00",
+      "end_timestamp": "2015-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-06.parquet",
+      "size_bytes": 591271
+    },
+    {
+      "month": "2015-07",
+      "rows": 32647,
+      "start_timestamp": "2015-07-01T00:00:00+00:00",
+      "end_timestamp": "2015-07-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-07.parquet",
+      "size_bytes": 573879
+    },
+    {
+      "month": "2015-08",
+      "rows": 30557,
+      "start_timestamp": "2015-08-02T17:00:00+00:00",
+      "end_timestamp": "2015-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-08.parquet",
+      "size_bytes": 646191
+    },
+    {
+      "month": "2015-09",
+      "rows": 31608,
+      "start_timestamp": "2015-09-01T00:00:00+00:00",
+      "end_timestamp": "2015-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-09.parquet",
+      "size_bytes": 547089
+    },
+    {
+      "month": "2015-10",
+      "rows": 31200,
+      "start_timestamp": "2015-10-01T00:00:00+00:00",
+      "end_timestamp": "2015-10-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-10.parquet",
+      "size_bytes": 608433
+    },
+    {
+      "month": "2015-11",
+      "rows": 30638,
+      "start_timestamp": "2015-11-01T17:00:00+00:00",
+      "end_timestamp": "2015-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-11.parquet",
+      "size_bytes": 558316
+    },
+    {
+      "month": "2015-12",
+      "rows": 31029,
+      "start_timestamp": "2015-12-01T00:00:00+00:00",
+      "end_timestamp": "2015-12-31T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2015-12.parquet",
+      "size_bytes": 539662
+    },
+    {
+      "month": "2016-01",
+      "rows": 29205,
+      "start_timestamp": "2016-01-03T17:00:00+00:00",
+      "end_timestamp": "2016-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-01.parquet",
+      "size_bytes": 488805
+    },
+    {
+      "month": "2016-02",
+      "rows": 30232,
+      "start_timestamp": "2016-02-01T00:00:00+00:00",
+      "end_timestamp": "2016-02-29T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-02.parquet",
+      "size_bytes": 583220
+    },
+    {
+      "month": "2016-03",
+      "rows": 33026,
+      "start_timestamp": "2016-03-01T00:00:00+00:00",
+      "end_timestamp": "2016-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-03.parquet",
+      "size_bytes": 630093
+    },
+    {
+      "month": "2016-04",
+      "rows": 29786,
+      "start_timestamp": "2016-04-01T00:00:00+00:00",
+      "end_timestamp": "2016-04-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-04.parquet",
+      "size_bytes": 483410
+    },
+    {
+      "month": "2016-05",
+      "rows": 32031,
+      "start_timestamp": "2016-05-01T17:00:00+00:00",
+      "end_timestamp": "2016-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-05.parquet",
+      "size_bytes": 592093
+    },
+    {
+      "month": "2016-06",
+      "rows": 31658,
+      "start_timestamp": "2016-06-01T00:00:00+00:00",
+      "end_timestamp": "2016-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-06.parquet",
+      "size_bytes": 588006
+    },
+    {
+      "month": "2016-07",
+      "rows": 30155,
+      "start_timestamp": "2016-07-01T00:00:00+00:00",
+      "end_timestamp": "2016-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-07.parquet",
+      "size_bytes": 487749
+    },
+    {
+      "month": "2016-08",
+      "rows": 33024,
+      "start_timestamp": "2016-08-01T00:00:00+00:00",
+      "end_timestamp": "2016-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-08.parquet",
+      "size_bytes": 555081
+    },
+    {
+      "month": "2016-09",
+      "rows": 31146,
+      "start_timestamp": "2016-09-01T00:00:00+00:00",
+      "end_timestamp": "2016-09-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-09.parquet",
+      "size_bytes": 477497
+    },
+    {
+      "month": "2016-10",
+      "rows": 30573,
+      "start_timestamp": "2016-10-02T17:00:00+00:00",
+      "end_timestamp": "2016-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-10.parquet",
+      "size_bytes": 544760
+    },
+    {
+      "month": "2016-11",
+      "rows": 31644,
+      "start_timestamp": "2016-11-01T00:00:00+00:00",
+      "end_timestamp": "2016-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-11.parquet",
+      "size_bytes": 638011
+    },
+    {
+      "month": "2016-12",
+      "rows": 30199,
+      "start_timestamp": "2016-12-01T00:00:00+00:00",
+      "end_timestamp": "2016-12-30T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2016-12.parquet",
+      "size_bytes": 556861
+    },
+    {
+      "month": "2017-01",
+      "rows": 31501,
+      "start_timestamp": "2017-01-02T02:00:00+00:00",
+      "end_timestamp": "2017-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-01.parquet",
+      "size_bytes": 571274
+    },
+    {
+      "month": "2017-02",
+      "rows": 28780,
+      "start_timestamp": "2017-02-01T00:00:00+00:00",
+      "end_timestamp": "2017-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-02.parquet",
+      "size_bytes": 503138
+    },
+    {
+      "month": "2017-03",
+      "rows": 32661,
+      "start_timestamp": "2017-03-01T00:00:00+00:00",
+      "end_timestamp": "2017-03-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-03.parquet",
+      "size_bytes": 580143
+    },
+    {
+      "month": "2017-04",
+      "rows": 29162,
+      "start_timestamp": "2017-04-02T17:00:00+00:00",
+      "end_timestamp": "2017-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-04.parquet",
+      "size_bytes": 497741
+    },
+    {
+      "month": "2017-05",
+      "rows": 33055,
+      "start_timestamp": "2017-05-01T00:00:00+00:00",
+      "end_timestamp": "2017-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-05.parquet",
+      "size_bytes": 582820
+    },
+    {
+      "month": "2017-06",
+      "rows": 31195,
+      "start_timestamp": "2017-06-01T00:00:00+00:00",
+      "end_timestamp": "2017-06-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-06.parquet",
+      "size_bytes": 519603
+    },
+    {
+      "month": "2017-07",
+      "rows": 30613,
+      "start_timestamp": "2017-07-02T17:00:00+00:00",
+      "end_timestamp": "2017-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-07.parquet",
+      "size_bytes": 568438
+    },
+    {
+      "month": "2017-08",
+      "rows": 33075,
+      "start_timestamp": "2017-08-01T00:00:00+00:00",
+      "end_timestamp": "2017-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-08.parquet",
+      "size_bytes": 563950
+    },
+    {
+      "month": "2017-09",
+      "rows": 29735,
+      "start_timestamp": "2017-09-01T00:00:00+00:00",
+      "end_timestamp": "2017-09-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-09.parquet",
+      "size_bytes": 526368
+    },
+    {
+      "month": "2017-10",
+      "rows": 31986,
+      "start_timestamp": "2017-10-01T17:00:00+00:00",
+      "end_timestamp": "2017-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-10.parquet",
+      "size_bytes": 527317
+    },
+    {
+      "month": "2017-11",
+      "rows": 31582,
+      "start_timestamp": "2017-11-01T00:00:00+00:00",
+      "end_timestamp": "2017-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-11.parquet",
+      "size_bytes": 559006
+    },
+    {
+      "month": "2017-12",
+      "rows": 28290,
+      "start_timestamp": "2017-12-01T00:00:00+00:00",
+      "end_timestamp": "2017-12-29T16:57:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2017-12.parquet",
+      "size_bytes": 475827
+    },
+    {
+      "month": "2018-01",
+      "rows": 32067,
+      "start_timestamp": "2018-01-01T17:00:00+00:00",
+      "end_timestamp": "2018-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-01.parquet",
+      "size_bytes": 614670
+    },
+    {
+      "month": "2018-02",
+      "rows": 28751,
+      "start_timestamp": "2018-02-01T00:00:00+00:00",
+      "end_timestamp": "2018-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-02.parquet",
+      "size_bytes": 517591
+    },
+    {
+      "month": "2018-03",
+      "rows": 31151,
+      "start_timestamp": "2018-03-01T00:00:00+00:00",
+      "end_timestamp": "2018-03-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-03.parquet",
+      "size_bytes": 522068
+    },
+    {
+      "month": "2018-04",
+      "rows": 30493,
+      "start_timestamp": "2018-04-01T17:00:00+00:00",
+      "end_timestamp": "2018-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-04.parquet",
+      "size_bytes": 517756
+    },
+    {
+      "month": "2018-05",
+      "rows": 33006,
+      "start_timestamp": "2018-05-01T00:00:00+00:00",
+      "end_timestamp": "2018-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-05.parquet",
+      "size_bytes": 628440
+    },
+    {
+      "month": "2018-06",
+      "rows": 29773,
+      "start_timestamp": "2018-06-01T00:00:00+00:00",
+      "end_timestamp": "2018-06-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-06.parquet",
+      "size_bytes": 517608
+    },
+    {
+      "month": "2018-07",
+      "rows": 32020,
+      "start_timestamp": "2018-07-01T17:00:00+00:00",
+      "end_timestamp": "2018-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-07.parquet",
+      "size_bytes": 496861
+    },
+    {
+      "month": "2018-08",
+      "rows": 32612,
+      "start_timestamp": "2018-08-01T00:00:00+00:00",
+      "end_timestamp": "2018-08-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-08.parquet",
+      "size_bytes": 581249
+    },
+    {
+      "month": "2018-09",
+      "rows": 29140,
+      "start_timestamp": "2018-09-02T17:00:00+00:00",
+      "end_timestamp": "2018-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-09.parquet",
+      "size_bytes": 488573
+    },
+    {
+      "month": "2018-10",
+      "rows": 33062,
+      "start_timestamp": "2018-10-01T00:00:00+00:00",
+      "end_timestamp": "2018-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-10.parquet",
+      "size_bytes": 550393
+    },
+    {
+      "month": "2018-11",
+      "rows": 31179,
+      "start_timestamp": "2018-11-01T00:00:00+00:00",
+      "end_timestamp": "2018-11-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-11.parquet",
+      "size_bytes": 524780
+    },
+    {
+      "month": "2018-12",
+      "rows": 29353,
+      "start_timestamp": "2018-12-02T17:00:00+00:00",
+      "end_timestamp": "2018-12-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2018-12.parquet",
+      "size_bytes": 462370
+    },
+    {
+      "month": "2019-01",
+      "rows": 32086,
+      "start_timestamp": "2019-01-01T17:02:00+00:00",
+      "end_timestamp": "2019-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-01.parquet",
+      "size_bytes": 535791
+    },
+    {
+      "month": "2019-02",
+      "rows": 28792,
+      "start_timestamp": "2019-02-01T00:00:00+00:00",
+      "end_timestamp": "2019-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-02.parquet",
+      "size_bytes": 476997
+    },
+    {
+      "month": "2019-03",
+      "rows": 30169,
+      "start_timestamp": "2019-03-01T00:00:00+00:00",
+      "end_timestamp": "2019-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-03.parquet",
+      "size_bytes": 502952
+    },
+    {
+      "month": "2019-04",
+      "rows": 31666,
+      "start_timestamp": "2019-04-01T00:00:00+00:00",
+      "end_timestamp": "2019-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-04.parquet",
+      "size_bytes": 491733
+    },
+    {
+      "month": "2019-05",
+      "rows": 31970,
+      "start_timestamp": "2019-05-01T00:00:00+00:00",
+      "end_timestamp": "2019-05-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-05.parquet",
+      "size_bytes": 478689
+    },
+    {
+      "month": "2019-06",
+      "rows": 29208,
+      "start_timestamp": "2019-06-02T17:01:00+00:00",
+      "end_timestamp": "2019-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-06.parquet",
+      "size_bytes": 478801
+    },
+    {
+      "month": "2019-07",
+      "rows": 33103,
+      "start_timestamp": "2019-07-01T00:00:00+00:00",
+      "end_timestamp": "2019-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-07.parquet",
+      "size_bytes": 536129
+    },
+    {
+      "month": "2019-08",
+      "rows": 31247,
+      "start_timestamp": "2019-08-01T00:00:00+00:00",
+      "end_timestamp": "2019-08-30T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-08.parquet",
+      "size_bytes": 502220
+    },
+    {
+      "month": "2019-09",
+      "rows": 30616,
+      "start_timestamp": "2019-09-01T17:04:00+00:00",
+      "end_timestamp": "2019-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-09.parquet",
+      "size_bytes": 488978
+    },
+    {
+      "month": "2019-10",
+      "rows": 33158,
+      "start_timestamp": "2019-10-01T00:00:00+00:00",
+      "end_timestamp": "2019-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-10.parquet",
+      "size_bytes": 555075
+    },
+    {
+      "month": "2019-11",
+      "rows": 29730,
+      "start_timestamp": "2019-11-01T00:00:00+00:00",
+      "end_timestamp": "2019-11-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-11.parquet",
+      "size_bytes": 457529
+    },
+    {
+      "month": "2019-12",
+      "rows": 30725,
+      "start_timestamp": "2019-12-01T17:00:00+00:00",
+      "end_timestamp": "2019-12-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2019-12.parquet",
+      "size_bytes": 488710
+    },
+    {
+      "month": "2020-01",
+      "rows": 31653,
+      "start_timestamp": "2020-01-01T17:00:00+00:00",
+      "end_timestamp": "2020-01-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-01.parquet",
+      "size_bytes": 505826
+    },
+    {
+      "month": "2020-02",
+      "rows": 28705,
+      "start_timestamp": "2020-02-02T17:00:00+00:00",
+      "end_timestamp": "2020-02-28T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-02.parquet",
+      "size_bytes": 496714
+    },
+    {
+      "month": "2020-03",
+      "rows": 32005,
+      "start_timestamp": "2020-03-01T17:00:00+00:00",
+      "end_timestamp": "2020-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-03.parquet",
+      "size_bytes": 707151
+    },
+    {
+      "month": "2020-04",
+      "rows": 31614,
+      "start_timestamp": "2020-04-01T00:00:00+00:00",
+      "end_timestamp": "2020-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-04.parquet",
+      "size_bytes": 524557
+    },
+    {
+      "month": "2020-05",
+      "rows": 30166,
+      "start_timestamp": "2020-05-01T00:00:00+00:00",
+      "end_timestamp": "2020-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-05.parquet",
+      "size_bytes": 529356
+    },
+    {
+      "month": "2020-06",
+      "rows": 31585,
+      "start_timestamp": "2020-06-01T00:00:00+00:00",
+      "end_timestamp": "2020-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-06.parquet",
+      "size_bytes": 533506
+    },
+    {
+      "month": "2020-07",
+      "rows": 32550,
+      "start_timestamp": "2020-07-01T00:00:00+00:00",
+      "end_timestamp": "2020-07-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-07.parquet",
+      "size_bytes": 643549
+    },
+    {
+      "month": "2020-08",
+      "rows": 30473,
+      "start_timestamp": "2020-08-02T17:00:00+00:00",
+      "end_timestamp": "2020-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-08.parquet",
+      "size_bytes": 509474
+    },
+    {
+      "month": "2020-09",
+      "rows": 31419,
+      "start_timestamp": "2020-09-01T00:00:00+00:00",
+      "end_timestamp": "2020-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-09.parquet",
+      "size_bytes": 551150
+    },
+    {
+      "month": "2020-10",
+      "rows": 31094,
+      "start_timestamp": "2020-10-01T00:00:00+00:00",
+      "end_timestamp": "2020-10-30T15:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-10.parquet",
+      "size_bytes": 500689
+    },
+    {
+      "month": "2020-11",
+      "rows": 29395,
+      "start_timestamp": "2020-11-01T17:00:00+00:00",
+      "end_timestamp": "2020-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-11.parquet",
+      "size_bytes": 519312
+    },
+    {
+      "month": "2020-12",
+      "rows": 31616,
+      "start_timestamp": "2020-12-01T00:00:00+00:00",
+      "end_timestamp": "2020-12-31T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2020-12.parquet",
+      "size_bytes": 539678
+    },
+    {
+      "month": "2021-01",
+      "rows": 29074,
+      "start_timestamp": "2021-01-03T17:00:00+00:00",
+      "end_timestamp": "2021-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-01.parquet",
+      "size_bytes": 498990
+    },
+    {
+      "month": "2021-02",
+      "rows": 28613,
+      "start_timestamp": "2021-02-01T00:00:00+00:00",
+      "end_timestamp": "2021-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-02.parquet",
+      "size_bytes": 474340
+    },
+    {
+      "month": "2021-03",
+      "rows": 32869,
+      "start_timestamp": "2021-03-01T00:00:00+00:00",
+      "end_timestamp": "2021-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-03.parquet",
+      "size_bytes": 581003
+    },
+    {
+      "month": "2021-04",
+      "rows": 30843,
+      "start_timestamp": "2021-04-01T00:00:00+00:00",
+      "end_timestamp": "2021-04-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-04.parquet",
+      "size_bytes": 553002
+    },
+    {
+      "month": "2021-05",
+      "rows": 29108,
+      "start_timestamp": "2021-05-02T17:00:00+00:00",
+      "end_timestamp": "2021-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-05.parquet",
+      "size_bytes": 495985
+    },
+    {
+      "month": "2021-06",
+      "rows": 31310,
+      "start_timestamp": "2021-06-01T00:00:00+00:00",
+      "end_timestamp": "2021-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-06.parquet",
+      "size_bytes": 536196
+    },
+    {
+      "month": "2021-07",
+      "rows": 30984,
+      "start_timestamp": "2021-07-01T00:00:00+00:00",
+      "end_timestamp": "2021-07-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-07.parquet",
+      "size_bytes": 467998
+    },
+    {
+      "month": "2021-08",
+      "rows": 31508,
+      "start_timestamp": "2021-08-01T17:04:00+00:00",
+      "end_timestamp": "2021-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-08.parquet",
+      "size_bytes": 514134
+    },
+    {
+      "month": "2021-09",
+      "rows": 31274,
+      "start_timestamp": "2021-09-01T00:00:00+00:00",
+      "end_timestamp": "2021-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-09.parquet",
+      "size_bytes": 524270
+    },
+    {
+      "month": "2021-10",
+      "rows": 29946,
+      "start_timestamp": "2021-10-01T00:00:00+00:00",
+      "end_timestamp": "2021-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-10.parquet",
+      "size_bytes": 457836
+    },
+    {
+      "month": "2021-11",
+      "rows": 31468,
+      "start_timestamp": "2021-11-01T00:00:00+00:00",
+      "end_timestamp": "2021-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-11.parquet",
+      "size_bytes": 558427
+    },
+    {
+      "month": "2021-12",
+      "rows": 32445,
+      "start_timestamp": "2021-12-01T00:00:00+00:00",
+      "end_timestamp": "2021-12-31T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2021-12.parquet",
+      "size_bytes": 484813
+    },
+    {
+      "month": "2022-01",
+      "rows": 30472,
+      "start_timestamp": "2022-01-02T17:03:00+00:00",
+      "end_timestamp": "2022-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-01.parquet",
+      "size_bytes": 517542
+    },
+    {
+      "month": "2022-02",
+      "rows": 28689,
+      "start_timestamp": "2022-02-01T00:00:00+00:00",
+      "end_timestamp": "2022-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-02.parquet",
+      "size_bytes": 512380
+    },
+    {
+      "month": "2022-03",
+      "rows": 32975,
+      "start_timestamp": "2022-03-01T00:00:00+00:00",
+      "end_timestamp": "2022-03-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-03.parquet",
+      "size_bytes": 580283
+    },
+    {
+      "month": "2022-04",
+      "rows": 29708,
+      "start_timestamp": "2022-04-01T00:00:00+00:00",
+      "end_timestamp": "2022-04-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-04.parquet",
+      "size_bytes": 570688
+    },
+    {
+      "month": "2022-05",
+      "rows": 31930,
+      "start_timestamp": "2022-05-01T17:04:00+00:00",
+      "end_timestamp": "2022-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-05.parquet",
+      "size_bytes": 575065
+    },
+    {
+      "month": "2022-06",
+      "rows": 31528,
+      "start_timestamp": "2022-06-01T00:00:00+00:00",
+      "end_timestamp": "2022-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-06.parquet",
+      "size_bytes": 561550
+    },
+    {
+      "month": "2022-07",
+      "rows": 30124,
+      "start_timestamp": "2022-07-01T00:00:00+00:00",
+      "end_timestamp": "2022-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-07.parquet",
+      "size_bytes": 542536
+    },
+    {
+      "month": "2022-08",
+      "rows": 33036,
+      "start_timestamp": "2022-08-01T00:00:00+00:00",
+      "end_timestamp": "2022-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-08.parquet",
+      "size_bytes": 601614
+    },
+    {
+      "month": "2022-09",
+      "rows": 31178,
+      "start_timestamp": "2022-09-01T00:00:00+00:00",
+      "end_timestamp": "2022-09-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-09.parquet",
+      "size_bytes": 626613
+    },
+    {
+      "month": "2022-10",
+      "rows": 30561,
+      "start_timestamp": "2022-10-02T17:04:00+00:00",
+      "end_timestamp": "2022-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-10.parquet",
+      "size_bytes": 556410
+    },
+    {
+      "month": "2022-11",
+      "rows": 31537,
+      "start_timestamp": "2022-11-01T00:00:00+00:00",
+      "end_timestamp": "2022-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-11.parquet",
+      "size_bytes": 641133
+    },
+    {
+      "month": "2022-12",
+      "rows": 31067,
+      "start_timestamp": "2022-12-01T00:00:00+00:00",
+      "end_timestamp": "2022-12-30T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2022-12.parquet",
+      "size_bytes": 524884
+    },
+    {
+      "month": "2023-01",
+      "rows": 31822,
+      "start_timestamp": "2023-01-01T17:04:00+00:00",
+      "end_timestamp": "2023-01-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-01.parquet",
+      "size_bytes": 571203
+    },
+    {
+      "month": "2023-02",
+      "rows": 25671,
+      "start_timestamp": "2023-02-01T00:00:00+00:00",
+      "end_timestamp": "2023-02-28T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-02.parquet",
+      "size_bytes": 485991
+    },
+    {
+      "month": "2023-03",
+      "rows": 22906,
+      "start_timestamp": "2023-03-01T00:00:00+00:00",
+      "end_timestamp": "2023-03-31T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-03.parquet",
+      "size_bytes": 442416
+    },
+    {
+      "month": "2023-04",
+      "rows": 20173,
+      "start_timestamp": "2023-04-02T17:00:00+00:00",
+      "end_timestamp": "2023-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-04.parquet",
+      "size_bytes": 365215
+    },
+    {
+      "month": "2023-05",
+      "rows": 23354,
+      "start_timestamp": "2023-05-01T00:00:00+00:00",
+      "end_timestamp": "2023-05-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-05.parquet",
+      "size_bytes": 455423
+    },
+    {
+      "month": "2023-06",
+      "rows": 21833,
+      "start_timestamp": "2023-06-01T00:00:00+00:00",
+      "end_timestamp": "2023-06-30T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-06.parquet",
+      "size_bytes": 408562
+    },
+    {
+      "month": "2023-07",
+      "rows": 22104,
+      "start_timestamp": "2023-07-02T18:00:00+00:00",
+      "end_timestamp": "2023-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-07.parquet",
+      "size_bytes": 429066
+    },
+    {
+      "month": "2023-08",
+      "rows": 32987,
+      "start_timestamp": "2023-08-01T00:00:00+00:00",
+      "end_timestamp": "2023-08-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-08.parquet",
+      "size_bytes": 539987
+    },
+    {
+      "month": "2023-09",
+      "rows": 29534,
+      "start_timestamp": "2023-09-01T00:00:00+00:00",
+      "end_timestamp": "2023-09-29T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-09.parquet",
+      "size_bytes": 510523
+    },
+    {
+      "month": "2023-10",
+      "rows": 32062,
+      "start_timestamp": "2023-10-01T17:00:00+00:00",
+      "end_timestamp": "2023-10-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-10.parquet",
+      "size_bytes": 512380
+    },
+    {
+      "month": "2023-11",
+      "rows": 31501,
+      "start_timestamp": "2023-11-01T00:00:00+00:00",
+      "end_timestamp": "2023-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-11.parquet",
+      "size_bytes": 563303
+    },
+    {
+      "month": "2023-12",
+      "rows": 28631,
+      "start_timestamp": "2023-12-01T00:00:00+00:00",
+      "end_timestamp": "2023-12-29T16:58:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2023-12.parquet",
+      "size_bytes": 520604
+    },
+    {
+      "month": "2024-01",
+      "rows": 30144,
+      "start_timestamp": "2024-01-01T00:00:00+00:00",
+      "end_timestamp": "2024-01-29T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-01.parquet",
+      "size_bytes": 812620
+    },
+    {
+      "month": "2024-02",
+      "rows": 29965,
+      "start_timestamp": "2024-02-01T00:00:00+00:00",
+      "end_timestamp": "2024-02-29T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-02.parquet",
+      "size_bytes": 815713
+    },
+    {
+      "month": "2024-03",
+      "rows": 31511,
+      "start_timestamp": "2024-03-01T00:00:00+00:00",
+      "end_timestamp": "2024-03-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-03.parquet",
+      "size_bytes": 895619
+    },
+    {
+      "month": "2024-04",
+      "rows": 31400,
+      "start_timestamp": "2024-04-01T00:00:00+00:00",
+      "end_timestamp": "2024-04-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-04.parquet",
+      "size_bytes": 872637
+    },
+    {
+      "month": "2024-05",
+      "rows": 28714,
+      "start_timestamp": "2024-05-02T21:00:00+00:00",
+      "end_timestamp": "2024-05-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-05.parquet",
+      "size_bytes": 795550
+    },
+    {
+      "month": "2024-06",
+      "rows": 31404,
+      "start_timestamp": "2024-06-01T00:00:00+00:00",
+      "end_timestamp": "2024-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-06.parquet",
+      "size_bytes": 861813
+    },
+    {
+      "month": "2024-07",
+      "rows": 31396,
+      "start_timestamp": "2024-07-01T00:00:00+00:00",
+      "end_timestamp": "2024-07-30T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-07.parquet",
+      "size_bytes": 945397
+    },
+    {
+      "month": "2024-08",
+      "rows": 30248,
+      "start_timestamp": "2024-08-01T21:00:00+00:00",
+      "end_timestamp": "2024-08-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-08.parquet",
+      "size_bytes": 815027
+    },
+    {
+      "month": "2024-09",
+      "rows": 31562,
+      "start_timestamp": "2024-09-01T00:00:00+00:00",
+      "end_timestamp": "2024-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-09.parquet",
+      "size_bytes": 918383
+    },
+    {
+      "month": "2024-10",
+      "rows": 30016,
+      "start_timestamp": "2024-10-01T00:00:00+00:00",
+      "end_timestamp": "2024-10-29T21:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-10.parquet",
+      "size_bytes": 973445
+    },
+    {
+      "month": "2024-11",
+      "rows": 29096,
+      "start_timestamp": "2024-11-01T22:00:00+00:00",
+      "end_timestamp": "2024-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2024-11.parquet",
+      "size_bytes": 826609
+    },
+    {
+      "month": "2025-01",
+      "rows": 28731,
+      "start_timestamp": "2025-01-02T22:00:00+00:00",
+      "end_timestamp": "2025-01-28T21:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-01.parquet",
+      "size_bytes": 856587
+    },
+    {
+      "month": "2025-02",
+      "rows": 28138,
+      "start_timestamp": "2025-02-02T22:00:00+00:00",
+      "end_timestamp": "2025-02-28T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-02.parquet",
+      "size_bytes": 872358
+    },
+    {
+      "month": "2025-03",
+      "rows": 31613,
+      "start_timestamp": "2025-03-01T00:00:00+00:00",
+      "end_timestamp": "2025-03-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-03.parquet",
+      "size_bytes": 1063502
+    },
+    {
+      "month": "2025-04",
+      "rows": 31456,
+      "start_timestamp": "2025-04-01T00:00:00+00:00",
+      "end_timestamp": "2025-04-30T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-04.parquet",
+      "size_bytes": 953893
+    },
+    {
+      "month": "2025-05",
+      "rows": 30347,
+      "start_timestamp": "2025-05-01T21:03:00+00:00",
+      "end_timestamp": "2025-05-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-05.parquet",
+      "size_bytes": 967865
+    },
+    {
+      "month": "2025-06",
+      "rows": 31601,
+      "start_timestamp": "2025-06-01T00:00:00+00:00",
+      "end_timestamp": "2025-06-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-06.parquet",
+      "size_bytes": 921531
+    },
+    {
+      "month": "2025-07",
+      "rows": 30138,
+      "start_timestamp": "2025-07-01T00:00:00+00:00",
+      "end_timestamp": "2025-07-31T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-07.parquet",
+      "size_bytes": 825186
+    },
+    {
+      "month": "2025-08",
+      "rows": 31542,
+      "start_timestamp": "2025-08-01T00:00:00+00:00",
+      "end_timestamp": "2025-08-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-08.parquet",
+      "size_bytes": 885555
+    },
+    {
+      "month": "2025-09",
+      "rows": 31572,
+      "start_timestamp": "2025-09-01T00:00:00+00:00",
+      "end_timestamp": "2025-09-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-09.parquet",
+      "size_bytes": 881349
+    },
+    {
+      "month": "2025-10",
+      "rows": 28787,
+      "start_timestamp": "2025-10-02T22:00:00+00:00",
+      "end_timestamp": "2025-10-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-10.parquet",
+      "size_bytes": 767362
+    },
+    {
+      "month": "2025-11",
+      "rows": 30335,
+      "start_timestamp": "2025-11-01T00:00:00+00:00",
+      "end_timestamp": "2025-11-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2025-11.parquet",
+      "size_bytes": 827415
+    },
+    {
+      "month": "2026-01",
+      "rows": 28704,
+      "start_timestamp": "2026-01-01T22:00:00+00:00",
+      "end_timestamp": "2026-01-27T21:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2026-01.parquet",
+      "size_bytes": 734929
+    },
+    {
+      "month": "2026-02",
+      "rows": 28759,
+      "start_timestamp": "2026-02-01T22:00:00+00:00",
+      "end_timestamp": "2026-02-27T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2026-02.parquet",
+      "size_bytes": 843287
+    },
+    {
+      "month": "2026-03",
+      "rows": 31532,
+      "start_timestamp": "2026-03-01T00:00:00+00:00",
+      "end_timestamp": "2026-03-30T23:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2026-03.parquet",
+      "size_bytes": 854100
+    },
+    {
+      "month": "2026-04",
+      "rows": 29910,
+      "start_timestamp": "2026-04-01T00:00:00+00:00",
+      "end_timestamp": "2026-04-29T20:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2026-04.parquet",
+      "size_bytes": 758610
+    },
+    {
+      "month": "2026-05",
+      "rows": 3883,
+      "start_timestamp": "2026-05-01T00:00:00+00:00",
+      "end_timestamp": "2026-05-03T16:59:00+00:00",
+      "file": "data/raw/EURUSD/1m_monthly/2026-05.parquet",
+      "size_bytes": 116051
+    }
+  ]
+}
