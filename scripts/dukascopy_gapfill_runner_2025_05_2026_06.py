@@ -242,8 +242,6 @@ def run():
                 duplicates_removed = 0
         else:
             duplicates_removed = 0
-        else:
-            duplicates_removed = 0
 
         try:
             # compute total rows across recorded chunk files in checkpoints
